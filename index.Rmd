@@ -1,5 +1,6 @@
 --- 
 title: "Manual de Gestão de Dados de Recursos do Solo"
+subtitle: ""
 author: "Alessandro Samuel-Rosa"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
