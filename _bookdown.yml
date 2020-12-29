@@ -8,5 +8,5 @@ language:
   ui:
     edit: "Editar"
     chapter_name: "Capítulo "
-edit: https://github.com/samuel-rosa/verde/edit/master/verde%s
-view: https://github.com/samuel-rosa/verde/edit/master/verde%s
+edit: https://github.com/samuel-rosa/verde/edit/master/%s
+view: https://github.com/samuel-rosa/verde/edit/master/%s
