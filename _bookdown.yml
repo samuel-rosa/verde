@@ -1,4 +1,5 @@
-book_filename: "gestao-dados-solo"
+book_filename: "manual-de-gestao-de-dados-de-recursos-do-solo"
+output_dir: "_book"
 delete_merged_file: true
 language:
   label:
@@ -7,5 +8,5 @@ language:
   ui:
     edit: "Editar"
     chapter_name: "Capítulo "
-edit: https://github.com/samuel-rosa/pedometria.org/edit/master/static/livros/gestao-dados-solo/%s
-view: https://github.com/samuel-rosa/pedometria.org/edit/master/static/livros/gestao-dados-solo/%s
+edit: https://github.com/samuel-rosa/verde/edit/master/verde%s
+view: https://github.com/samuel-rosa/verde/edit/master/verde%s

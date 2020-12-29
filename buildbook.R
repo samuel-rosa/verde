@@ -1,0 +1,5 @@
+# renv::init()
+# install.packages("languageserver")
+# renv::snapshot()
+rmarkdown::render_site(encoding = 'UTF-8')
+bookdown::serve_book()
