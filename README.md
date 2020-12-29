@@ -1,2 +1,1 @@
-# verde
-Manual de Gestão de Dados de Recursos do Solo
+# Dados de Recursos do Solo

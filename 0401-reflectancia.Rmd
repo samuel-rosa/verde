@@ -1,0 +1,23 @@
+# Reflectância
+
+_Taciara Zborowski Horst-Heinen_[^taciara], _Alessandro Samuel-Rosa_[^alessandro]
+
+## Conceitos e definições
+
+## Métodos de determinação
+
+[@ViscarraRosselEtAl2016]
+
+## Padronização
+
+W350...W2500Wavebands in nanometers at which reflectance values are given in the database [@ICRAFEtAl2010].
+
+```{r, echo=FALSE}
+x <- febr::standard(table = "camada", variable = "reflectancia")
+x$campo_id <- paste0("`", x$campo_id, "`")
+x$campo_descricao <- gsub("[", "[`", x$campo_descricao, fixed = TRUE)
+x$campo_descricao <- gsub("]", "`]", x$campo_descricao, fixed = TRUE)
+knitr::kable(x[, c("campo_id", "campo_descricao")])
+```
+
+## Harmonização
