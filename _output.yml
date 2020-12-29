@@ -8,7 +8,7 @@ bookdown::gitbook:
         <li>
           <a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a>
         </li>
-    download: ["pdf"]
+    # download: ["pdf"]
   includes:
     after_body: html/after_body.html
 bookdown::pdf_book:
