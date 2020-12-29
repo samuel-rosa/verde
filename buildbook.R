@@ -1,6 +1,6 @@
 # Prepare working directory
 renv::init()
-install.packages("languageserver")
+install.packages(c("languageserver", "servr", "lintr"))
 renv::snapshot()
 
 # Build and serve book
