@@ -1,0 +1,1036 @@
+\documentclass[a4paper,dvipsnames]{tufte-book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{
+            pdftitle={Manual de Gestão de Dados de Recursos do Solo},
+            pdfauthor={Alessandro Samuel-Rosa},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=Blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+% https://www.ctan.org/pkg/fancyhdr
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[RO]{\textsl{\nouppercase{\rightmark}}}
+\fancyhead[LE]{\textsl{\nouppercase{\leftmark}}}
+\fancyfoot[LE, RO]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+% http://tug.ctan.org/tex-archive/macros/latex/contrib/tufte-latex/
+\publisher{Universidade Tecnológica Federal do Paraná}
+% https://tex.stackexchange.com/questions/443018/package-inputenc-error-unicode-char-%CC%81-u301inputenc
+% \DeclareUnicodeCharacter{0301}{*************************************}
+% \DeclareUnicodeCharacter{2265}{AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}
+% https://tex.stackexchange.com/questions/473859/subtitle-in-tufte-book
+\makeatletter
+\newcommand{\plainsubtitle}{}%     plain-text-only subtitle
+\newcommand{\subtitle}[1]{%
+  \gdef\@subtitle{#1}%
+  \renewcommand{\plainsubtitle}{#1}% use provided plain-text title
+  \ifthenelse{\isundefined{\hypersetup}}%
+    {}% hyperref is not loaded; do nothing
+    {\hypersetup{pdftitle={\plaintitle: \plainsubtitle{}}}}% set the PDF metadata title
+}
+\renewcommand{\maketitlepage}[0]{%
+  \cleardoublepage%
+  {%
+  \sffamily%
+  \begin{fullwidth}%
+    \fontsize{18}{20}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklessauthor}}%
+    \vspace{11.5pc}%
+    \fontsize{36}{40}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklesstitle}}%
+    \vspace{5pc}%
+    \fontsize{24}{28}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\plainsubtitle}}%
+    \vfill%
+    \fontsize{14}{16}\selectfont\par\noindent\allcaps{\thanklesspublisher}%
+  \end{fullwidth}%
+  }
+  \thispagestyle{empty}%
+  \clearpage%
+}
+\makeatother
+% https://tex.stackexchange.com/questions/77999/remove-indent-of-paragraph-and-add-line-skip-with-tufte-latex/
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{0.0pc}%
+  \setlength{\JustifyingParindent}{0.0pc}%
+  \setlength{\parindent}{0pc}%
+  % \setlength{\parskip}{\baselineskip}%
+}
+\@tufte@reset@par
+\pagecolor{Emerald}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+
+\title{Manual de Gestão de Dados de Recursos do Solo}
+\author{Alessandro Samuel-Rosa}
+\date{2020-12-30}
+
+\begin{document}
+\maketitle
+
+\newpage
+\nopagecolor
+\begin{fullwidth}
+~\vfill
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+\par{\smallcaps{Publicado pela Universidade Tecnológica Federal do Paraná, Câmpus Santa Helena}}
+
+\par{
+  Curso de Agronomia/Laboratório de Pedometria\\
+  Prolongamento da Rua Cerejeira, s/n\\
+  Bairro São Luiz\\
+  CEP 85892-000\\
+  Santa Helena - PR - Brasil\\
+  Telefone Geral +55 (45) 3268-8800
+}
+
+\par\smallcaps{www.pedometria.org}
+
+\par\includegraphics[width=1.5cm]{img/cc-by-nc-sa.png} Exceto quando proveniente de outras fontes ou onde especificado o contrário, o conteúdo deste documento está licenciado sob uma licença \href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional}.
+
+\par\textit{Última edição em \today.}
+\end{fullwidth}
+
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section*{Prefácio}\label{prefuxe1cio}
+\addcontentsline{toc}{section}{Prefácio}
+
+\section{Introdução}\label{intro}
+
+\section{Metadados de Métodos}\label{metadados-de-muxe9todos}
+
+\emph{Alessandro Samuel-Rosa}\footnote{Dr.~Alessandro Samuel-Rosa é
+  professor na Universidade Tecnológica Federal do Paraná, Departamento
+  de Agronomia, Prolongamento da Rua Cerejeira, s/n, CEP 85892-000,
+  Santa Helena, Paraná, Brasil.}
+
+\subsection{Conceitos e definições}\label{conceitos-e-definiuxe7uxf5es}
+
+Um dos conteúdos mais importantes de qualquer conjunto de dados da
+pesquisa são os metadados de métodos. Os \textbf{metadados de métodos}
+descrevem como os dados foram produzidos. Eles incluem, desde aspectos
+relacionados à amostragem, passando pelos menores detalhes sobre os
+procedimentos laboratoriais implementados, até as correções e
+transformações aplicadas aos dados antes de seu uso.
+
+Os metadados de métodos são fundamentais para possibilitar o reúso
+seguro dos dados da pesquisa num futuro próximo (5 anos) ou distante (50
+ou mais anos). E isso se aplica, tanto a terceiros, como a quem produziu
+os dados. Sem os metadados de métodos, a decisão sobre \emph{se} e
+\emph{como} reusar os dados fica envolta em inúmeras incertezas. As
+pessoas interessadas acabam tendo o trabalho adicional de contactar os
+produtores dos dados para obter tais informações, tarefa que muitas
+vezes se mostra ineficiente ou inviável ou, até mesmo, impossível.
+
+Os metadados de métodos também são fundamentais quando queremos utilizar
+dados de dois ou mais conjuntos de dados. São eles que permitem definir
+se dados de diferentes origens podem ser fundidos e qual é a maneira
+mais apropriada de fazermos essa fusão. Para compreender melhor esse
+cenário, suponha que dispomos de dois conjunto de dados do solo. Ambos
+consistem na classificação taxonômica de perfis de solo, identificada
+utilizando uma mesma edição do Sistema Brasileiro de Classificação de
+Solos. A fusão dos dois conjuntos de dados parece razoável, dado que
+lidam com a mesma variável, a classificação taxonômica.
+
+Agora suponha que, ao consultarmos a descrição dos métodos de campo e
+laboratório, identificamos que cada conjunto de dados foi produzido
+utilizando métodos consideravelmente distintos. Um deles utilizou
+descrições morfológicas e resultados de análises laboratoriais de
+amostras coletadas em trincheiras. Já o outro usou apenas descrições
+morfológicas de amostras coletadas em perfurações com trado holandês.
+Isso significa que as variáveis são operacionalmente distintas e sua
+fusão exigirá algum tipo de pré-processamento. Contudo, como uma
+classificação taxonômica inferida via tradagem é mais incerta do que
+aquela identificada usando perfis completos, dependendo da aplicação
+intendida, a fusão dos conjuntos de dados pode passar a ser
+questionável.
+
+\subsection{Estrutura de metadados}\label{estrutura-de-metadados}
+
+Os detalhes mais importantes sobre os campos das tabelas
+\texttt{observacao} e \texttt{camada} são armazenados na tabela metadado
+usando \texttt{campo\_descricao}, \texttt{campo\_unidade} e
+\texttt{campo\_tipo}. O primeiro deles, \texttt{campo\_descricao}, é o
+mais importante de todos, onde são armazenados todos os detalhes sobre a
+obtenção das informações armazenadas nas tabelas \texttt{observacao} e
+\texttt{camada}. Por exemplo, enquanto o campo
+\texttt{ferro\_cloridrico\_eaa} na tabela camada identifica o conteúdo
+de ferro no solo determinado por espectrofotometria de absorção atômica
+no extrato de solução de ácido clorídrico, a tabela metadado armazena
+informações sobre como as amostras do solo foram preparadas, a qualidade
+dos reagentes utilizados e dos equipamentos empregados, a sequência de
+passos adotados durante a análise laboratorial, as possíveis adaptações
+realizadas em relação ao método padrão, e assim por diante. Nesse caso,
+os identificadores \texttt{cloridrico} e \texttt{eaa} são responsáveis
+pela maior porção da variação nos resultados -- quando diferentes
+métodos são comparados --, enquanto as informações em
+\texttt{campo\_descricao} explicam as variações de menor magnitude nos
+resultados.
+
+Os campos \texttt{campo\_unidade} e \texttt{campo\_tipo} destinam-se a
+informações mais específicas sobre os dados armazenados nas tabelas
+\texttt{observacao} e \texttt{camada}. O primeiro deles armazena a
+unidade de medida, a qual também é armazenada na segunda linha de ambas
+as tabelas \texttt{observacao} e \texttt{camada}. No momento, o autor ou
+responsável pelos dados precisa informar a unidade de medida em ambas as
+tabelas. Como isso pode ser fonte de erros, se pretende implementar no
+futuro uma rotina automatizada de preenchimento do campo campo\_unidade
+a partir das informações inseridas nas tabelas observacao e camada. O
+segundo campo, \texttt{campo\_tipo}, serve para armazenar a
+categorização das informações contidas nas observacao e camada. As
+categorias possíveis são descritas na tabela a seguir.
+
+\begin{longtable}[]{@{}ccc@{}}
+\caption{Tipos de dados.}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.13\columnwidth}\centering\strut
+\textbf{Tipo}\strut
+\end{minipage} & \begin{minipage}[b]{0.39\columnwidth}\centering\strut
+\textbf{Descrição}\strut
+\end{minipage} & \begin{minipage}[b]{0.39\columnwidth}\centering\strut
+\textbf{Exemplo}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.13\columnwidth}\centering\strut
+\textbf{Tipo}\strut
+\end{minipage} & \begin{minipage}[b]{0.39\columnwidth}\centering\strut
+\textbf{Descrição}\strut
+\end{minipage} & \begin{minipage}[b]{0.39\columnwidth}\centering\strut
+\textbf{Exemplo}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.13\columnwidth}\centering\strut
+Inteiro\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Números positivos ou negativos sem casas decimais\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Número de subamostras coletadas, número de identificação de uma
+amostra\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\centering\strut
+Real\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Números positivos ou negativos com casas decimais\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Conteúdo de argila, Profundidade do solo, elevação acima do nível do
+mar\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\centering\strut
+Texto\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Uma cadeia de caracteres alfanuméricos e especiais\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Classificação taxonômica, descrição morfológica\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\centering\strut
+Booleano\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Um valor verdadeiro (1) ou falso (0)\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Presença/ausência de carbonatos, presença/ausência de cerosidade\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\centering\strut
+Data\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Datas na representação aaaa-mm-dd\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Data em que as amostras foram coletadas\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\centering\strut
+Moeda\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Números com casas decimais representando moeda corrente\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\centering\strut
+Valor monetário da terra, custo monetário de uma amostra\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+O último grupo de colunas da tabela metadado está destinado à
+identificação do laboratório responsável pela geração dos dados
+armazenados nas tabelas observacao e camada. Essas informações são
+necessárias para que os usuários dos dados possam sanar quaisquer
+dúvidas sobre a consistência dos dados que por ventura surjam durante a
+sua utilização.
+
+\begin{longtable}[]{@{}cc@{}}
+\caption{Table continues below}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.26\columnwidth}\centering\strut
+\textbf{Identificador}\strut
+\end{minipage} & \begin{minipage}[b]{0.42\columnwidth}\centering\strut
+\textbf{Nome}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.26\columnwidth}\centering\strut
+\textbf{Identificador}\strut
+\end{minipage} & \begin{minipage}[b]{0.42\columnwidth}\centering\strut
+\textbf{Nome}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.26\columnwidth}\centering\strut
+lab\_nome\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering\strut
+Nome do laboratório\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.26\columnwidth}\centering\strut
+lab\_endereco\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering\strut
+Endereço físico do laboratório\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}c@{}}
+\toprule
+\begin{minipage}[b]{0.43\columnwidth}\centering\strut
+\textbf{Descrição}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.43\columnwidth}\centering\strut
+Nome do laboratório responsável pela geração dos dado do respectivo
+campo da tabela observacao ou camada.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.43\columnwidth}\centering\strut
+Endereço físico do laboratório responsável pela geração dos dados do
+respectivo campo da tabela observacao ou camada. Informar rua, número,
+complemento, bairro, cidade, estado, CEP e país.\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsection{Compilação de metadados de
+métodos}\label{compilauxe7uxe3o-de-metadados-de-muxe9todos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Preparar uma tabela para receber os dados
+\item
+  Mapear todas as variáveis mensuradas e unidades de medida
+\item
+  Identificar a descrição das rotinas analíticas
+\end{enumerate}
+
+\subsubsection{Tabela para
+compilação}\label{tabela-para-compilauxe7uxe3o}
+
+\subsubsection{Mapeamento de
+variáveis}\label{mapeamento-de-variuxe1veis}
+
+\begin{itemize}
+\tightlist
+\item
+  O primeiro passo é consultar as tabelas com os dados para mapear todas
+  as variáveis mensuradas.
+\item
+  Algumas delas estarão agregadas sob um conjunto de células mescladas,
+  o que dificulta a identificação pelos menos experientes. Alguns
+  exemplos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Composição granulométrica da terra fina: areia grossa, areia fina,
+    silte e argila.
+  \item
+    Complexo sortivo: Ca, Mg, K, Na, S, Al, H e T.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Identificação dos
+métodos}\label{identificauxe7uxe3o-dos-muxe9todos}
+
+\begin{itemize}
+\tightlist
+\item
+  O segundo passo é identificar a descrição das rotinas analíticas.
+\item
+  A descrição das rotinas analíticas costuma estar na seção Material e
+  Métodos, Procedimentos laboratoriais, ou similar.
+\end{itemize}
+
+\section*{VARIÁVEIS MORFOLÓGICAS}\label{variuxe1veis-morfoluxf3gicas}
+\addcontentsline{toc}{section}{VARIÁVEIS MORFOLÓGICAS}
+
+\section{Cor do Solo}\label{cor-do-solo}
+
+\emph{Alessandro Samuel-Rosa}\footnote{Dr.~Alessandro Samuel-Rosa é
+  professor na Universidade Tecnológica Federal do Paraná, Departamento
+  de Agronomia, Prolongamento da Rua Cerejeira, s/n, CEP 85892-000,
+  Santa Helena, Paraná, Brasil.}, \emph{Taciara Zborowski
+Horst-Heinen}\footnote{MSc. Taciara Zborowski Horst-Heinen é
+  pesquisadora na Universidade Federal de Santa Maria, Programa de
+  Pós-Graduação em Ciência do Solo, Avenida Roraima, 1000, CEP
+  97105-900, Santa Maria, Rio Grande do Sul, Brasil.}
+
+\subsection{Conceitos e
+definições}\label{conceitos-e-definiuxe7uxf5es-1}
+
+A \textbf{cor do solo} é uma qualidade relativa à percepção visual que
+seres humanos têm do solo. Essa percepção é resultado da impressão que a
+luz refletida pelo solo produz nos olhos de quem o está observando.
+Logo, trata-se de uma qualidade perceptível apenas na presença de luz
+visível, seja ela proveniente de fontes artificiais ou naturais.
+
+A luz visível corresponde aos comprimentos de onda entre cerca de 400 e
+700 nm. Essa porção do espectro eletromagnético é popularmente conhecida
+como espectro óptico ou espectro do visível. Se ignorarmos os principais
+fatores intervenientes como imperfeições do olho ou cérebro do
+observador, condições do ambiente circunvizinho, intensidade da luz, e
+ângulo de incidência e visada, a cor do solo resulta da repartição
+diferencial dos comprimentos de onda da luz visível incidente entre os
+fenômenos de absorção, transmissão e reflexão. Essa repartição
+diferencial é fruto da maneira como os vários constituíntes do solo
+interagem com a radiação eletromagnética. É a radiação presente nos
+comprimentos de onda do visível (fótons) que deixam a superfície do solo
+em maior quantidade, por reflexão ou, inclusive, emissão, que ditam a
+cor do solo.
+
+\subsection{Métodos de
+determinação}\label{muxe9todos-de-determinauxe7uxe3o}
+
+\subsection{Fontes de variação}\label{fontes-de-variauxe7uxe3o}
+
+\subsection{Padronização}\label{padronizauxe7uxe3o}
+
+O esquema padronizado de identificação e descrição de métodos de
+determinação da cor de materiais do solo utilizado no FEBR é apresentado
+na tabela abaixo. São considerados dois materiais de solo (matriz e
+manchas), dois estados de umidade (úmido e seco) e duas condições
+mecânicas (amassada e triturada).
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.41\columnwidth}\raggedright\strut
+Código de identificação\strut
+\end{minipage} & \begin{minipage}[b]{0.34\columnwidth}\raggedright\strut
+Descrição mínima sugerida\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_umido\_munsell}\strut
+\end{minipage} & \begin{minipage}[t]{0.34\columnwidth}\raggedright\strut
+Notação da cor de material de solo {[}\texttt{cor}{]}. Determinada na
+matriz do solo {[}\texttt{matriz}{]}. Amostra em estado de umidade úmido
+{[}\texttt{umido}{]}. Expressa utilizando a notação de Munsell® (matiz
+valor/croma) {[}\texttt{munsell}{]}. \{A DETERMINAÇÃO FOI FEITA NO CAMPO
+OU EM LABORATÓRIO?\}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_seco\_munsell}\strut
+\end{minipage} & \begin{minipage}[t]{0.34\columnwidth}\raggedright\strut
+Notação da cor de material de solo {[}\texttt{cor}{]}. Determinada na
+matriz do solo {[}\texttt{matriz}{]}. Amostra em estado de umidade seco
+{[}seco{]}. Expressa utilizando a notação de Munsell® (matiz
+valor/croma) {[}\texttt{munsell}{]}. \{ESPECIFICAR SE A DETERMINAÇÃO FOI
+FEITA NO CAMPO OU EM LABORATÓRIO\}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_amassada\_munsell}\strut
+\end{minipage} & \begin{minipage}[t]{0.34\columnwidth}\raggedright\strut
+Notação da cor de material de solo {[}\texttt{cor}{]}. Determinada na
+matriz do solo {[}\texttt{matriz}{]}. Amostra em estado de umidade úmido
+e condição mecânica amassada {[}\texttt{amassada}{]}. Expressa
+utilizando a notação de Munsell® (matiz valor/croma)
+{[}\texttt{munsell}{]}. \{ESPECIFICAR SE A DETERMINAÇÃO FOI FEITA NO
+CAMPO OU EM LABORATÓRIO\}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_triturada\_munsell}\strut
+\end{minipage} & \begin{minipage}[t]{0.34\columnwidth}\raggedright\strut
+Notação da cor de material de solo {[}\texttt{cor}{]}. Determinada na
+matriz do solo {[}\texttt{matriz}{]}. Amostra em estado de umidade seco
+e condição mecânica triturada {[}\texttt{triturada}{]}. Expressa
+utilizando a notação de Munsell® (matiz valor/croma)
+{[}\texttt{munsell}{]}. \{ESPECIFICAR SE A DETERMINAÇÃO FOI FEITA NO
+CAMPO OU EM LABORATÓRIO\}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+\texttt{cor\_mancha\_umido\_munsell}\strut
+\end{minipage} & \begin{minipage}[t]{0.34\columnwidth}\raggedright\strut
+Notação da cor de material de solo {[}\texttt{cor}{]}. Determinada na
+mancha do solo {[}\texttt{mancha}{]}. Amostra em estado de umidade úmido
+{[}\texttt{umido}{]}. Expressa utilizando a notação de Munsell® (matiz
+valor/croma) {[}\texttt{munsell}{]}. \{ESPECIFICAR SE A DETERMINAÇÃO FOI
+FEITA NO CAMPO OU EM LABORATÓRIO\}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsection{Exemplo}\label{exemplo}
+
+A tabela a seguir apresenta um exemplo de organização tabular de dados
+de cor da matriz e manchas de um perfil de solo. Os dados são reais e
+foram obtidos da descrição morfológica de um perfil de solo classificado
+como Planossolo Nátrico Órtico vertissólico, localizado no município de
+Pacaraima, Roraima\footnote{Virlei Álvaro de Oliveira et al., ``Capítulo
+  2. Solos Da Xi Reunião Brasileira de Classificação E Correlação de
+  Solos (Rcc de Roraima),'' in \emph{Guia de Campo Da Xi Reunião
+  Brasileira de Classificação E Correlação de Solos: RCC de Roraima},
+  First (Brasília, DF: EMBRAPA, 2018), 12--29.}. A tabela está
+transposta, com as observações nas colunas e as variáveis nas linhas,
+para facilitar a visualização e comparação dos códigos de identificação
+da cores da matriz e machas do perfil de solo.
+
+Dentre os oito horizontes, quatro possuem matriz com duas ou mais cores
+(Btgn, Btgnv1, Btgnv2 e 2Cgn). Nestes, as cores da matriz ocupam áreas
+superficiais aproximadamente similares, com distribuição espacial muito
+complexa, que dificulta a identificação visual de uma cor dominante com
+credibilidade. Trata-se do padrão multicolorido intricado conhecido como
+variegado.
+
+\begin{longtable}[]{@{}lllllllll@{}}
+\toprule
+\begin{minipage}[b]{0.21\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright\strut
+An\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright\strut
+En\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+EBn\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Btn\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Btgn\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Btgnv1\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Btgnv2\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright\strut
+2Cgn\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_umido\_munsell\_1}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+10YR 5/1\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+10YR 5/1\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+10YR 6/2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 5/2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 6/2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+10YR 4/1\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+10YR 4/1\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+10YR 6/2\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_umido\_munsell\_2}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 5/2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+10YR 5/2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+10YR 5/2\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+10YR 7/2\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_umido\_munsell\_3}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+10YR 6/2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+10YR 4/2\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_umido\_munsell\_4}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 5/8\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 5/6\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_matriz\_seco\_munsell}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+10YR 6/2\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+10YR 6/1\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_mancha\_umido\_munsell\_1}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 5/8\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 5/8\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+10YR 6/8\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_mancha\_umido\_munsell\_2}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 4/1\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.21\columnwidth}\raggedright\strut
+\texttt{cor\_mancha\_umido\_munsell\_3}\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+7,5YR 7/2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright\strut
+-\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\section*{VARIÁVEIS FÍSICAS}\label{variuxe1veis-fuxedsicas}
+\addcontentsline{toc}{section}{VARIÁVEIS FÍSICAS}
+
+\section{Densidade}\label{densidade}
+
+\emph{Alessandro Samuel-Rosa}\footnote{Dr.~Alessandro Samuel-Rosa é
+  professor na Universidade Tecnológica Federal do Paraná, Departamento
+  de Agronomia, Prolongamento da Rua Cerejeira, s/n, CEP 85892-000,
+  Santa Helena, Paraná, Brasil.}, \emph{Wenceslau Geraldes
+Teixeira}\footnote{Dr.~Wenceslau Geraldes Teixeira é pesquisador na
+  Empresa Brasileira de Pesquisa Agropecuária, Centro Nacional de
+  Pesquisa de Solos, Rua Jardim Botânico, 1024, CEP 22460-000, Rio de
+  Janeiro, Rio de Janeiro, Brasil.}, \emph{João Herbert Moreira
+Viana}\footnote{Dr.~João Herbert Moreira Viana é pesquisador na Empresa
+  Brasileira de Pesquisa Agropecuária, Centro Nacional de Pesquisa de
+  Milho e Sorgo, Rodovia MG-424, Km 45, CEP 35701-970, Sete Lagoas,
+  Minas Gerais, Brasil.}
+
+\subsection{Conceitos e
+definições}\label{conceitos-e-definiuxe7uxf5es-2}
+
+A densidade do solo, também chamada erroneamente de densidade aparente
+ou densidade global, é uma medida da massa seca de todo o material
+contido em determinado volume de solo. Esse material inclui todas as
+frações dos componentes de origem mineral e orgânica do solo. No FEBR, a
+densidade do solo é definida, operacionalmente, como densidade do solo
+inteiro, e seu código de identificação é \texttt{densidade}. No World
+Soil Information Service (WoSIS), a densidade do solo inteiro é
+denominada \emph{bulk density whole soil}, e seu código de identificação
+é BDWS.
+
+\subsection{Métodos de
+determinação}\label{muxe9todos-de-determinauxe7uxe3o-1}
+
+A DSI pode ser determinada utilizando uma variedade de métodos diretos e
+indiretos. Aqui tratamos apenas dos métodos diretos. Esses métodos
+diferenciam-se em si pela maneira de obtenção das amostras do solo e
+quantificação (ou estimativa) da sua massa e volume. Em geral, a escolha
+por um ou outro método está relacionada às características do solo,
+especialmente a granulometria e composição mineralógica do solo. Os
+principais métodos diretos de determinação da DSI são: cilindro, torrão,
+proveta, monolito, e escavação. Assim, o segundo nível de codificação da
+DSI no FEBR consiste na identificação desses métodos, ou seja:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{densidade\_cilindro},
+\item
+  \texttt{densidade\_torrao},
+\item
+  \texttt{densidade\_proveta},
+\item
+  \texttt{densidade\_monolito}, e
+\item
+  \texttt{densidade\_escavacao}.
+\end{itemize}
+
+Dentre os métodos diretos, \texttt{densidade\_cilindro} e
+\texttt{densidade\_torrao} são os mais utilizados quando o material do
+solo é coletado tentando se preservar a estrutura do solo. Também
+costumam ser os mais utilizados quando o solo é composto, em sua quase
+totalidade, pela fração fina (\textgreater{} 2 mm) e, no caso de
+\texttt{densidade\_torrao}, quando há predomínio da fração argila. Já o
+método \texttt{densidade\_proveta} aplica-se mais aos casos em que há
+dominância da fração areia ou quando se pretende fazer estimativas da
+DSI usando apenas a fração fina do solo. Por fim, os métodos
+\texttt{densidade\_monolito} e \texttt{densidade\_escavacao} são mais
+usados quando há predomínio das frações grossas (\textgreater{} 2 mm),
+que impossibilitam ou dificultam sobremaneira a inserção de cilindros no
+solo ou coleta de torrões com estrutura preservada. As mesmas
+dificuldades são encontradas em solo com expressivo volume de raízes de
+grande diâmetro e elevado conteúdo de matéria orgânica, como em
+florestas, onde o método \texttt{densidade\_escavacao} é o mais usado.
+
+\subsection{Fontes de variação}\label{fontes-de-variauxe7uxe3o-1}
+
+Cada um dos métodos diretos de determinação da DSI apontados acima
+abrange uma variedade de detalhes metodológicos que podem exercer
+pequenas influências sobre os resultados obtidos. Por exemplo, no caso
+do \texttt{densidade\_cilindro}, há chance de influência do método
+utilizado para inserção do cilindro no solo, que pode ser por percussão
+com martelo ou por pressão com prensa hidráulica. Em geral, espera-se
+que o método da percussão com martelo cause maior compactação e
+estilhaçamento da amostra, especialmente quando o cilindro usado é muito
+pequeno.\footnote{Manuel Casanova et al., ``Direct Measurement and
+  Prediction of Bulk Density on Alluvial Soils of Central Chile,''
+  \emph{Chilean Journal of Agricultural Research} 76, no. 1 (March
+  2016): 105--13, \url{https://doi.org/10.4067/s0718-58392016000100015}.}
+A compactação da amostra também pode ocorrer quando os cilindros usados
+não possuem corte em bisel na face inserida no solo. Por outro lado,
+espera-se que, quanto mais finas as paredes do cilindro, menor seja a
+compactação da amostra.
+
+Outro detalhe metodológico que pode influenciar os resultados é o
+tamanho do cilindro.\footnote{Ahmed Abed Gatea Al-Shammary et al.,
+  ``Soil Bulk Density Estimation Methods: A Review,'' \emph{Pedosphere}
+  28, no. 4 (August 2018): 581--96,
+  \url{https://doi.org/10.1016/s1002-0160(18)60034-7}; Casanova et al.,
+  ``Direct Measurement and Prediction of Bulk Density on Alluvial Soils
+  of Central Chile.''} Boa parte dos estudos usa cilindros de 100 cm3,
+tamanho recomendado pelo Manual de Métodos de Análise de Solo.\footnote{Brivaldo
+  Gomes de Almeida et al., ``Densidade Do Solo,'' in \emph{Manual de
+  Métodos de Análise de Solo}, ed. Paulo César Teixeira et al.
+  (Brasília: EMBRAPA, 2017), 65--75.} Contudo, relatos do uso de
+cilindros de diversos tamanhos são encontrados na literatura, por
+exemplo, 9,65 cm3 (amostras pequenas usadas em reometria), 30 cm3, 300
+cm3, e 1000 cm3 (calibração de sensores de medição do conteúdo de água
+no solo).
+
+A definição do tamanho do cilindro é importante pois está relacionada ao
+volume elementar representativo (REV, do inglês \emph{representative
+elementar volume}) de cada tipo de solo. Por exemplo, se há poros muito
+grandes ou cascalhos e calhaus no sistema, cilindros pequenos não seriam
+representativos. A questão do REV se aplica também aos demais métodos,
+principalmente \texttt{densidade\_torrao}, \texttt{densidade\_monolito}
+e \texttt{densidade\_escavacao}. Especialmente no caso do
+\texttt{densidade\_monolito} e \texttt{densidade\_escavacao}, que
+utilizam amostras maiores, a questão da REV seria melhor atendida. Esse
+já não seria o caso do método \texttt{densidade\_torrao}, onde torrões
+de tamanhos bastantes variados são usados, mas geralmente menores que
+100 m³ devido à dificuldade de se obter agregados estáveis --
+especialmente em solo de granulometria mais grossa. Um aspecto
+importante a ser considerado aqui é que o uso de repetições locais não
+resolve o problema da REV. Isso porque a função das repetições é
+quantificar o erro de medida, não resolver variação espacial de
+curtíssima distância -- no FEBR, repetições são identificada na tabela
+\emph{camada} usando o campo \texttt{amostra\_id}.
+
+Diferentes dos demais métodos, \texttt{densidade\_torrao} e
+\texttt{densidade\_monolito} incluem a impermeabilização das amostras.
+Esse procedimento pode ser feito usando diferentes compostos, tais como
+parafina, verniz ou querosene. Apesar das diferenças entre esses
+compostos, espera-se que o uso de diferentes impermeabilizantes tenha
+efeito muitíssimo pequeno, se algum, sobre os resultados de DSI obtidos.
+O mesmo pode ser esperado para o caso do \texttt{densidade\_escavacao},
+método em que podem ser utilizados diferentes materiais para
+preenchimento da escavação, por exemplo, areia ou água.
+
+Um detalhe metodológico de grande importância na determinação da DSI é a
+umidade da amostra do solo no momento da quantificação da sua massa e
+volume. Na maioria dos casos, esses valores são obtidos com a amostra
+seca. Contudo, para as amostras de alguns tipos de solo, o que se faz é
+equilibrar as amostras em determinado potencial, geralmente 1/3 atm ou
+33 kPa, que corresponde ao que se convencionou chamar de capacidade de
+campo. Esse procedimento se justifica nos casos de solos com presença de
+argilas expansivas em quantidade suficiente para causar aumento
+perceptível do volume da massa de solo, como no caso dos solos com
+características vérticas e Vertissolos. Na determinação da DSI desses
+solos, o volume e massa da amostra são quantificados nesta umidade
+controlada.\footnote{Clément Mathieu and Françoise Pieltain,
+  \emph{Analyse Physique Des Sols: Méthodes Choisies} (Paris: Lavoisier,
+  1998); R. B. Grossman and T. G. Reinsch, ``2.1 Bulk Density and Linear
+  Extensibility,'' in \emph{SSSA Book Series}, ed. Jacob H. Dane and G.
+  Clarke Topp (Madison, WI, USA: Soil Science Society of America, 2002),
+  201--28, \url{https://doi.org/10.2136/sssabookser5.4.c9}.}
+
+Dentre todos os detalhes metodológicos mencionados acima, a condição de
+umidade da amostra de solo no momento da quantificação da massa e volume
+é aquele com maior potencial de exercer influências sobre os resultados
+obtidos. Para a maioria das outras fontes adicionais de variação nos
+resultados, os trabalhos de comparação, quando existentes, são de
+difícil acesso. No FEBR, ainda não foram registrados conjuntos de dados
+em que a determinação da DSI tenha sido realizada com amostras úmidas,
+razão pela qual não se faz necessário definir codificação adicional.
+Contudo, caso dados dessa natureza sejam submetidos ao FEBR, a
+codificação poderá ser definida, em seu terceiro nível, pela condição da
+amostra no momento da quantificação da massa e volume -- por exemplo,
+\texttt{estufa}, \texttt{ar}, \texttt{campo}, \texttt{33kpa}, entre
+outras. Esse procedimento estaria em acordo com aqueles adotados no
+World Soil Information System (WoSIS).\footnote{Eloi Ribeiro, Niels H.
+  Batjes, and A. J. M. van Oostrum, \emph{World Soil Information Service
+  (Wosis) - Towards the Standardization and Harmonization of World Soil
+  Data. Procedures Manual 2018} (Wageningen, The Netherlands: ISRIC
+  World Soil Information, 2018),
+  \url{https://doi.org/10.17027/isric-wdcsoils.20180001}.}
+
+\subsection{Padronização}\label{padronizauxe7uxe3o-1}
+
+A Tabela 1 apresenta os códigos padronizados utilizados no FEBR para
+identificar cada um dos métodos de determinação da densidade do solo
+inteiro e da fração terra fina. Também apresenta uma descrição mínima
+sugerida para cada um desses métodos, ou seja, um roteiro padronizado
+para especificação dos detalhes mais importantes de cada método.
+Detalhes adicionais dos métodos podem ser especificados conforme
+indicado pelo texto em caixa alta entre chaves.
+
+Tabela 1. Codificação e descrição mínima sugerida da densidade do solo
+inteiro e da fração terra fina no FEBR.
+
+A Tabela 2 abaixo apresenta as especificações de unidade de medida, a
+precisão numérica, tipo de dado, e categoria da variável no FEBR.
+
+Tabela 2. Especificações da densidade do solo inteiro no FEBR.
+
+\subsection{Harmonização}\label{harmonizauxe7uxe3o}
+
+Existe uma grande variedade de métodos de determinação direta da DSI.
+Cada um deles foi desenvolvido de maneira a permitir a determinação da
+DSI em diferentes condições, por exemplo, de granulometria e mineralogia
+do solo. Assim, não existe um único método de referência para a
+determinação da DSI. Isso significa que, em geral, não é possível
+transformar os valores obtidos com um método qualquer para valores
+aproximadamente equivalentes aos valores que seriam obtidos com outro
+método. Dados empíricos que permitam construir modelos estatísticos para
+fazer essa conversão são escassos e pouco representativos.
+
+A limitação de dados empíricos impossibilita, por ora, a harmonização
+dos dados de DSI no FEBR. Estudos que venham resolver essa limitação são
+bem vindos, especialmente no caso dos métodos que guardam mais
+similaridades entre si, por exemplo, \texttt{densidade\_torrao} e
+\texttt{densidade\_cilindro}. Em geral, \texttt{densidade\_torrao} tende
+a sobre estimar a DSI, comparado ao \texttt{densidade\_cilindro}, por
+desconsiderar o espaço poroso existente entre os agregados.\footnote{Casanova
+  et al., ``Direct Measurement and Prediction of Bulk Density on
+  Alluvial Soils of Central Chile.''} O FEBR tem condições de acomodar
+um modelo estatístico que transforme os valores de DSI obtidos com
+\texttt{densidade\_torrao} para valores aproximadamente equivalentes
+àqueles que seriam obtidos com \texttt{densidade\_cilindro} -- e
+vice-versa.
+
+\subsection{Agradecimentos}\label{agradecimentos}
+
+\begin{itemize}
+\tightlist
+\item
+  Iêde de Brito Chaves, professor aposentado da Universidade Federal da
+  Paraíba (UFPB), pelas considerações acerca das potenciais dificuldades
+  causadas pelo uso das expressões `densidade do solo inteiro',
+  `densidade do solo', `densidade aparente' e `densidade global'.
+  {[}\href{https://groups.google.com/d/msgid/soil-mapping/7c8745ca-243d-4d15-97cc-2d00cb5eefdd\%40googlegroups.com}{Ver
+  essa discussão na Web}{]}
+\item
+  Anderson Sandro da Rocha, professor da Universidade Tecnológica
+  Federal do Paraná, Curso de Agronomia.
+\item
+  Paulo Ivonir Gubiani, professor da Universidade Federal de Santa
+  Maria, Departamento de Solos.
+\end{itemize}
+
+\hypertarget{refs}{}
+\hypertarget{ref-Al-ShammaryEtAl2018}{}
+Al-Shammary, Ahmed Abed Gatea, Abbas Z. Kouzani, Akif Kaynak, Sui Yang
+Khoo, Michael Norton, and Will Gates. ``Soil Bulk Density Estimation
+Methods: A Review.'' \emph{Pedosphere} 28, no. 4 (August 2018): 581--96.
+\url{https://doi.org/10.1016/s1002-0160(18)60034-7}.
+
+\hypertarget{ref-AlmeidaEtAl2017}{}
+Almeida, Brivaldo Gomes de, João Herbert Moreira Viana, Wenceslau
+Geraldes Teixeira, and Guilherme Kangussu Donagemma. ``Densidade Do
+Solo.'' In \emph{Manual de Métodos de Análise de Solo}, edited by Paulo
+César Teixeira, Guilherme Kangussu Donagemma, Ademir Fontana, and
+Wenceslau Geraldes Teixeira, 65--75. Brasília: EMBRAPA, 2017.
+
+\hypertarget{ref-CasanovaEtAl2016}{}
+Casanova, Manuel, Elizabeth Tapia, Oscar Seguel, and Osvaldo Salazar.
+``Direct Measurement and Prediction of Bulk Density on Alluvial Soils of
+Central Chile.'' \emph{Chilean Journal of Agricultural Research} 76, no.
+1 (March 2016): 105--13.
+\url{https://doi.org/10.4067/s0718-58392016000100015}.
+
+\hypertarget{ref-GrossmanEtAl2002}{}
+Grossman, R. B., and T. G. Reinsch. ``2.1 Bulk Density and Linear
+Extensibility.'' In \emph{SSSA Book Series}, edited by Jacob H. Dane and
+G. Clarke Topp, 201--28. Madison, WI, USA: Soil Science Society of
+America, 2002. \url{https://doi.org/10.2136/sssabookser5.4.c9}.
+
+\hypertarget{ref-MathieuEtAl1998}{}
+Mathieu, Clément, and Françoise Pieltain. \emph{Analyse Physique Des
+Sols: Méthodes Choisies}. Paris: Lavoisier, 1998.
+
+\hypertarget{ref-OliveiraEtAl2018b}{}
+Oliveira, Virlei Álvaro de, José Frutuoso do Vale Júnior, Carlos Ernesto
+Gonçalves Reynaud Schaefer, José Francisco Lumbreras, Maurício Rizzato
+Coelho, Valdinar Ferreira Melo, Milton César Costa Campos, Guilherme
+Resende Corrêa, Sebastião Barreiros Calderano, and João Carlos Ker.
+``Capítulo 2. Solos Da Xi Reunião Brasileira de Classificação E
+Correlação de Solos (Rcc de Roraima).'' In \emph{Guia de Campo Da Xi
+Reunião Brasileira de Classificação E Correlação de Solos: RCC de
+Roraima}, First., 12--29. Brasília, DF: EMBRAPA, 2018.
+
+\hypertarget{ref-RibeiroEtAl2018}{}
+Ribeiro, Eloi, Niels H. Batjes, and A. J. M. van Oostrum. \emph{World
+Soil Information Service (Wosis) - Towards the Standardization and
+Harmonization of World Soil Data. Procedures Manual 2018}. Wageningen,
+The Netherlands: ISRIC World Soil Information, 2018.
+\url{https://doi.org/10.17027/isric-wdcsoils.20180001}.
+
+\end{document}

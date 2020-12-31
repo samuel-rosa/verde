@@ -10,3 +10,13 @@ language:
     chapter_name: "Capítulo "
 edit: https://github.com/samuel-rosa/verde/edit/master/%s
 view: https://github.com/samuel-rosa/verde/edit/master/%s
+rmd_files: [
+  "index.Rmd",
+  # "introducao.Rmd",
+  "metadados-de-metodos.Rmd",
+  # "morfologia.Rmd",
+  "morfologia-cor-do-solo.Rmd",
+  # "fisica.Rmd",
+  "fisica-densidade.Rmd",
+  "classificacao-taxonomica.Rmd",
+  "referencias.Rmd"]

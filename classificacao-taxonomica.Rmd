@@ -1,0 +1,16 @@
+# Classificação Taxonômica
+
+_Alessandro Samuel-Rosa_[^alessandro]
+
+```{r, echo = FALSE, include = FALSE}
+knitr::read_chunk("classificacao-taxonomica.R")
+```
+
+## Conceitos e definições
+
+## Padronização
+
+A Tabela \@ref(tab:taxon-campo-id) apresenta os códigos padronizados utilizados para identificar os métodos de determinação da classificação taxonômica de perfis de solo.
+
+```{r, taxon-campo-id, echo = FALSE, results = 'asis'}
+```
