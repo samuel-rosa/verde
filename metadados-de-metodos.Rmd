@@ -49,25 +49,26 @@ O último grupo de colunas da tabela metadado está destinado à identificação
 
 ### Mapeamento de variáveis
 
-O **mapeamento de variáveis** consiste na identificação das variáveis do solo publicadas num trabalho de pesquisa, incluindo as relações entre elas e sua origem. Existem diferentes maneira de fazer esse mapeamento. Cada uma delas será mais eficiente a depender do tipo de trabalho de pesquisa considerado. Por exemplo, trabalhos de levantamento pedológico costumam apresentar os dados das variáveis do solo em seção anexa localizada no final do relatório do levantamento ou em documento próprio. Isso facilita o mapeamento das variáveis do solo, especialmente quando o serviço de compilação dos metadados é realizado por terceiros com conhecimento incompleto da natureza dos dados.
+O **mapeamento de variáveis** consiste na identificação das variáveis do solo publicadas num trabalho de pesquisa, incluindo as relações entre elas e sua origem. Existem diferentes maneira de fazer esse mapeamento. Cada uma delas será mais eficiente a depender do tipo de trabalho de pesquisa considerado. Por exemplo, trabalhos de levantamento pedológico costumam apresentar os dados das variáveis do solo em seção própria logo após a descrição dos métodos de trabalho empregados ou como anexo no final do relatório. Isso facilita o mapeamento das variáveis do solo, especialmente quando o serviço de compilação é realizado por terceiros com conhecimento incompleto da natureza dos dados.
 
-A Figura \@ref(fig:exemplo-dados-analiticos-perfil) apresenta dados reais de variáveis químicas e físicas de perfil de solo de um levantamento pedológico[@FloresEtAl2012 Página 343 do Anexo IIC (Perfil 163)]. São quatro tabelas, cada uma delas contendo dados de um conjunto de variáveis, dispostas nas colunas, para três amostras de solo (`Ap`, `Bi` e `C`), dispostas nas linhas.
+Vamos utilizar dados de um levantamento pedológico para compreender como funciona o mapeamento de variáveis. A Figura \@ref(fig:radam-perfil-49-tabelas-ces) apresenta dados reais de variáveis físicas e químicas do perfil de solo n° 49 do volume 10 do [Projeto RADAMBRASIL](https://www.ibge.gov.br/)[@VianaEtAl1976]. O código de identificação do conjunto de dados proveniente deste trabalho no FEBR é `ctb0711`.
 
-```{r, exemplo-dados-analiticos-perfil, fig.cap = "Exemplo de disposição tabular de dados de variáveis químicas e físicas de perfil de solo proveniente de trabalho de levantamento de pedológico.", out.width = "100%", echo = FALSE}
+```{r, radam-perfil-49-tabelas-ces, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 49 do do volume 10 do Projeto RADAMBRASIL.", out.width = "100%", echo = FALSE}
 ```
 
-A primeira das tabelas possui 12 colunas, o que corresponde a 12 variáveis do solo (Tabela \@ref(tab:mapeamento-de-variaveis)). Algumas delas estão agrupadas sob uma denominação mais ampla disposta no interior células mescladas na parte superior da tabela. São três agrupamentos: "Horizonte", "Frações da amostra total (g/kg)" e "Composição granulométrica da terra fina (g/kg)". A identificação desses agrupamentos de variáveis é muito importante e será analisada em maior detalhe na próxima seção. Por enquanto, basta ficar evidente que esses agrupamentos indicam a existência de relações entre as variáveis constituintes. Assim, ao registrar o nome de cada variável, deve-se registrar o identificador de seu agrupamento, assim como a unidade de medida correspondente.
+Os dados do perfil n° 49 estão organizados em três tabelas. Cada tabela contém dados de um conjunto de variáveis, dispostas nas colunas, para as cinco camadas amostradas (`A1`, `A3`, `B1`, `B21` e `B22`), dispostas nas linhas. A primeira das tabelas possui nove colunas, o que corresponde a nove variáveis do solo. Algumas delas estão agrupadas sob uma denominação mais ampla disposta no interior células mescladas na parte superior da tabela. São dois agrupamentos: "Horizonte" e "Comp Granulométrica % (tfsa)". A identificação desses agrupamentos é muito importante e será analisada em maior detalhe na próxima seção. Por enquanto, basta ficar evidente que esses agrupamentos indicam a existência de relações entre as variáveis constituintes. Assim, ao registrar o nome de cada variável, deve-se registrar o identificador de seu agrupamento, assim como a unidade de medida correspondente (Tabela \@ref(tab:mapeamento-de-variaveis-ces)). Em outras palavras, deve-se registrar o cabeçalho completo de cada coluna.
 
-```{r, mapeamento-de-variaveis, echo = FALSE, result = 'asis'}
+```{r, mapeamento-de-variaveis-ces, echo = FALSE, result = 'asis'}
 ```
 
-O mapeamento das variáveis exige que todas as tabelas de dados de um trabalho de pesquisa sejam analisadas. Isso é necessário, inclusive, no caso de relatórios de levantamentos pedológicos. Apesar da relativa padronização desses trabalhos, não é raro encontrar conjuntos de variáveis distintas mensuradas para os diferentes perfis. As razões para isso são inúmeras. Uma delas é a realização das determinações analíticas em laboratórios distintos, prática bastante comum nos levantamentos pedológicos do [Projeto RADAMBRASIL](https://www.ibge.gov.br/).
+O mapeamento de variáveis exige que todas as tabelas de dados de um trabalho de pesquisa sejam analisadas. Por exemplo, os autores podem escolher dispor diferentes agrupamentos de variáveis em tabelas distintas. Isso é bastante comum no caso de dissertações, teses e publicações em periódicos científicos. No caso de relatórios de levantamentos pedológicos, isso costuma acontecer quando são reutilizados dados provenientes de trabalhos pretéritos. Também acontece quando dois ou mais laboratórios são contratados para realizar as determinações analíticas. Para lidar com essa variedade, a primeira edição do Manual Técnico de Pedologia chegou a incluir os formulários utilizados pelos diferentes laboratórios para apresentar dados de análises físicas e químicas do solo[@Souza1995].
 
-Perfil 49 p.226 CES (Centro de Estudo de Solos (CES))
-PERFIL N. 6 p.234 IPEAN (Instituto de Pesquisas Agropecuárias do Norte, hoje Empresa Brasileira 
-de Pesquisas Agropecuárias (EMBRAPA))
+A Figura \@ref(fig:radam-perfil-06-tabelas-ipean) mostra os dados do perfil n° 6 do do volume 10 do Projeto RADAMBRASIL. Agora os dados estão dispostos em quatro tabelas, totalizando 34 variáveis, diferente do perfil n° 49, com suas três tabelas e 29 variáveis. A razão para a diferença é a origem dos dados. Enquanto as amostras do perfil n° 49 foram analisadas no antigo Centro de Estudo de Solos (CES) da Escola Superior de Agricultura "Luiz de Queiroz", os dados do perfil n° 6 foram produzidos pelo Instituto de Pesquisas Agropecuárias do Norte (IPEAN), hoje Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA).
 
-```{r, exemplo-dados-analiticos-perfil-radam, fig.cap = "Exemplo de diferenças encontradas no rol de variáveis mensuradas em perfis de solo de trabalhos de levantamento pedológico.", out.width = "100%", echo = FALSE}
+```{r, radam-perfil-06-tabelas-ipean, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 6 do do volume 10 do Projeto RADAMBRASIL.", out.width = "100%", echo = FALSE}
+```
+
+```{r, mapeamento-de-variaveis-ces-ipean, echo = FALSE, result = 'asis'}
 ```
 
 ### Identificação dos métodos

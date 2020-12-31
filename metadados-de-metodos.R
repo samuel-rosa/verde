@@ -44,29 +44,49 @@ DiagrammeR::mermaid("
   E --> G(Metadados</br>de métodos)
 ")
 
-## ---- exemplo-dados-analiticos-perfil ----
-knitr::include_graphics("img/exemplo-dados-analiticos-perfil.png")
+## ---- radam-perfil-49-tabelas-ces ----
+knitr::include_graphics("img/radam-perfil-49-tabelas-ces.png")
 
-## ---- mapeamento-de-variaveis ----
+## ---- mapeamento-de-variaveis-ces ----
 variavel <- c(
-  "Horizonte: Símbolo",
-  "Horizonte: Profundidade (cm)",
-  "Frações da amostra total (g/kg): Calhaus > 20 (mm)",
-  "Frações da amostra total (g/kg): Cascalho 20-2 (mm)",
-  "Frações da amostra total (g/kg): Terra fina <2 (mm)",
-  "Composição granulométrica da terra fina (g/kg): Areia grossa 2-0,2 (mm)",
-  "Composição granulométrica da terra fina (g/kg): Areia fina 0,20-0,05 (mm)",
-  "Composição granulométrica da terra fina (g/kg): Silte 0,05-0,002 (mm)",
-  "Composição granulométrica da terra fina (g/kg): Argila < 0,002 (mm)",
-  "Argila dispersa em água (g/kg)",
-  "Grau de floculação (%)",
-  "% Silte / % Argila"
+  "Horizonte: Simb",
+  "Horizonte: Prof cm",
+  "Esqueleto % > 2 mm",
+  "Comp Granulométrica % (tfsa): Areia 2-0,05 mm",
+  "Comp Granulométrica % (tfsa): Silte 0,05-0,002 mm",
+  "Comp Granulométrica % (tfsa): Argila < 0,002 mm",
+  "Argila natural %",
+  "Grau de floc %",
+  "Silte/Argila"
 )
-caption <- "Mapeamento de variáveis: primeira etapa da compilação de metadado de métodos."
+caption <-
+  "Mapeamento de variáveis: identificação de variáveis, relações entre elas e unidades de medida."
 col.names <- c("Variável")
 knitr::kable(
   x = cbind(variavel), caption = caption,
   col.names = col.names, align = "l", split.tables = Inf)
 
-## ---- exemplo-dados-analiticos-perfil-radam ----
-knitr::include_graphics("img/exemplo-dados-analiticos-perfil-radam.png")
+## ---- radam-perfil-06-tabelas-ipean ----
+knitr::include_graphics("img/radam-perfil-06-tabelas-ipean.png")
+
+## ---- mapeamento-de-variaveis-ces-ipean ----
+variavel <- c(
+  "Horizonte: Simb",
+  "Horizonte: Prof cm",
+  "CES: Esqueleto % > 2 mm",
+  "IPEAN: Amostra seca ao ar %: Calhau > 20 mm",
+  "IPEAN: Amostra seca ao ar %: Cascalho 20-2 mm",
+  "CES: Comp Granulométrica % (tfsa): Areia 2-0,05 mm",
+  "IPEAN: Comp Granulométrica % (tfsa): Areia grossa 2-0,2 mm",
+  "IPEAN: Comp Granulométrica % (tfsa): Areia fina 0,2-0,05 mm",
+  "Comp Granulométrica % (tfsa): Silte 0,05-0,002 mm",
+  "Comp Granulométrica % (tfsa): Argila < 0,002 mm",
+  "Argila natural %",
+  "Grau de floc %",
+  "Silte/Argila"
+)
+caption <- "Mapeamento de variáveis: identificação de variáveis e sua origem."
+col.names <- c("Variável")
+knitr::kable(
+  x = cbind(variavel), caption = caption,
+  col.names = col.names, align = "l", split.tables = Inf)
