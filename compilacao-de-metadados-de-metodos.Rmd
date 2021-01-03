@@ -57,7 +57,7 @@ A última etapa da compilação de metadados de métodos consiste na identifica�
 ```{r, metodos-unidade-de-medida, echo = FALSE, result = 'asis'}
 ```
 
-A identificação das unidades de medida das variáveis também costuma depender da compilação prévia da descrição dos métodos analíticos. Por exemplo, algumas variáveis são agrupadas nas tabelas de dados por compartilharem a mesma unidade de medida. Contudo, diferente das variáveis usadas nos exemplos anteriores, são quantificadas em rotinas analíticas distintas. Esse é o caso das variáveis agrupadas sob "Complexo Sortivo (mE/100g)" na Figura \@ref(fig:radam-perfil-06-tabelas-ipean) e \@ref(fig:radam-perfil-49-tabelas-ces).
+A identificação das unidades de medida das variáveis também costuma depender da compilação prévia da descrição dos métodos analíticos. Por exemplo, algumas variáveis são agrupadas nas tabelas de dados por compartilharem a mesma unidade de medida. Contudo, diferente das variáveis usadas nos exemplos anteriores, são quantificadas em rotinas analíticas distintas. Esse é o caso das variáveis agrupadas sob "Complexo Sortivo (mE/100g)" na Figura \@ref(fig:radam-perfil-06-tabelas-ipean) e \@ref(fig:radam-perfil-49-tabelas-ces). Além disso, é possível que algumas unidades de medida, omitidas das tabelas de dados, estejam definidas junto da descrição dos métodos.
 
 ## Problemas comuns
 
