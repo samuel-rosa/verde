@@ -50,10 +50,7 @@ Uma características que deve ser notada na Tabela \@ref(tab:descricao-de-metodo
 
 ## Unidades de medida
 
-
-
 Tabela \@ref(tab:metodos-unidade-de-medida)
-
 
 ```{r, metodos-unidade-de-medida, echo = FALSE, result = 'asis'}
 ```
@@ -62,4 +59,14 @@ Isso pode acontecer por razão da natureza das relações teóricas existentes e
 
 ## Problemas comuns
 
-**Variáveis sem descrição dos métodos.** Não é raro encontrar trabalhos em que a descrição dos métodos utilizados para produzir os dados de algumas ou todas as variáveis foi omitida. Isso acontece, principalmente, em trabalhos que não passam por rigorosa revisão por pares, como é o caso de relatórios de levantamentos pedológicos. Nesses casos, a melhor solução é indicar apenas a referência bibliográfica
+Em geral, procedimento mais adequado consiste em registrar os problemas identificados durante a compilação dos dados. Em seguida, deve-se contactar os autores do trabalho de pesquisa para encontrar a solução mais eficiente para os problemas. Caso isso não seja possível, a melhor alternativa é procurar pela ajuda de cientistas do solo com conhecimento do trabalho de pesquisa ou experientes no tema.
+
+**Variáveis sem descrição de métodos.** É comum encontrar trabalhos de pesquisa em que a descrição dos métodos utilizados para produzir os dados de algumas variáveis foi omitida. Isso acontece, principalmente, em trabalhos que não passam por rigorosa revisão por pares, como é o caso de relatórios de levantamentos pedológicos e, inclusive, dissertações e teses. Nesses casos, a melhor solução é indicar apenas a referência bibliográfica completa dos manuais de métodos citados no trabalho de pesquisa. Somente cientistas do solo experientes, após detalhada análise do trabalho de pesquisa, têm condições de especificar quais métodos têm mais chance de terem sido utilizados para produzir os dados.
+
+**Descrição de métodos de variáveis inexistentes.** Alguns trabalhos de pesquisa incluem a descrição de métodos analíticos sem apresentar quaisquer dados produzidos utilizando os mesmos. Esse tipo de problema tem sido mais comum em trabalhos de levantamentos pedológicos que, conforme dito acima, não passam por revisão por pares rigorosa. A razão dessa inconsistência costuma ser o fato de os autores copiarem a descrição dos métodos de seus trabalhos anteriores em que aquelas variáveis foram mensuradas. Durante a compilação dos metadados de métodos, deve-se registrar essas ocorrências para mais tarde entrar em contato com os autores do trabalho de pesquisa. Essa é a única maneira segura de ter certeza sobre a razão desse tipo de inconsistência.
+
+**Variáveis com unidade de medida omitida.** Muitas variáveis do solo não possuem unidade de medida, incluindo o pH e as inúmeras razões entre variáveis que se costuma calcular. Contudo, alguns trabalhos equivocadamente omitem as unidades de medida de variáveis que são [grandezas escalares][escalar]. Isso geralmente acontece por descuido dos autores que, de tão acostumados em lidar com aquelas variáveis, não sentem falta de suas unidades de medida para analisar os dados. Quando isso acontecer, deve-se registrar o ocorrido durante a compilação dos dados e solicitar esclarecimentos dos autores.
+
+[escalar]: https://pt.wikipedia.org/wiki/Grandeza_escalar
+
+**Citação inconsistente de referências.** A primeira edição do Manual de Métodos de Análise de Solo da EMBRAPA iniciou a cultura de identificar os métodos analíticos por um código numérico [CITAÇÃO]. Nos nos seguintes, muitos pesquisadores passaram a omitir a descrição dos métodos analíticos em seus trabalhos, indicando apenas seu código identificador. Esses identificadores foram descartados na segunda edição do Manual [CITAÇÃO]. Entretanto, alguns pesquisadores continuaram fazendo referência aos códigos da edição de 1979, mesmo que estivessem usando a edição de 1997 ou mais recente. Em geral, esse equívoco parece ser resultado da reutilização deliberada de descrições de procedimentos metodológicos publicados em trabalhos anteriores realizados pelos mesmos autores. A ação recomendada consiste em registrar o observado e contactar os autores ou cientistas do solo experientes.
