@@ -1,0 +1,162 @@
+--- 
+title: "Manual de Gestão de Dados de Recursos do Solo"
+subtitle: ""
+author: "Alessandro Samuel-Rosa"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+description: "Manual de Gestão de Dados de Recursos do Solo"
+github-repo: "samuel-rosa/verde"
+url: https\://www.pedometria.org/livros/manual-de-gestao-de-dados-de-recursos-do-solo/
+# LaTeX
+documentclass: tufte-book
+indent: false
+classoption:
+  - dvipsnames
+papersize: a4
+colorlinks: true
+bibliography: [book.bib, packages.bib]
+csl: chicago-fullnote-bibliography.csl
+link-citations: yes
+---
+
+# LaTeX
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Metadados de Métodos
+
+Placeholder
+
+
+## Conceitos e definições
+## Estrutura de metadados
+
+<!--chapter:end:metadados-de-metodos.Rmd-->
+
+# Compilação de Metadados de Métodos
+
+_Alessandro Samuel-Rosa_[^alessandro]
+
+```{r, echo = FALSE, include = FALSE}
+knitr::read_chunk("compilacao-de-metadados-de-metodos.R")
+```
+
+## Mapeamento de variáveis
+
+O mapeamento de variáveis consiste na identificação das variáveis do solo publicadas num trabalho de pesquisa, incluindo as relações entre elas e sua origem. Existem diferentes maneira de fazer esse mapeamento. Cada uma delas será mais eficiente a depender do tipo de trabalho de pesquisa considerado. Por exemplo, trabalhos de levantamento pedológico costumam apresentar os dados das variáveis do solo em seção própria logo após a descrição dos métodos de trabalho empregados ou como anexo no final do relatório do levantamento. Isso facilita o mapeamento das variáveis do solo, especialmente quando o serviço de compilação é realizado por terceiros com conhecimento incompleto da natureza dos dados.
+
+Vamos utilizar dados de um levantamento pedológico para compreender como funciona o mapeamento de variáveis. A Figura \@ref(fig:radam-perfil-49-tabelas-ces) apresenta dados reais de variáveis físicas e químicas do perfil de solo n° 49 do volume 10 do [Projeto RADAMBRASIL](https://www.ibge.gov.br/)[@VianaEtAl1976]. O código de identificação do conjunto de dados proveniente deste trabalho no FEBR é `ctb0711`.
+
+```{r, radam-perfil-49-tabelas-ces, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 49 do volume 10 do Projeto RADAMBRASIL.", out.width = "70%", fig.align = "center", echo = FALSE}
+```
+
+Os dados do perfil n° 49 estão organizados em três tabelas. Cada tabela contém dados de um conjunto de variáveis, dispostas nas colunas, para as cinco camadas amostradas (`A1`, `A3`, `B1`, `B21` e `B22`), dispostas nas linhas. A primeira das tabelas possui nove colunas, o que corresponde a nove variáveis do solo. Algumas delas estão agrupadas sob uma denominação mais ampla disposta no interior células mescladas na parte superior da tabela. São dois agrupamentos: "Horizonte" e "Comp Granulométrica % (tfsa)". A identificação desses agrupamentos é muito importante e será analisada em maior detalhe nas próximas seções. Por enquanto, basta ficar evidente que esses agrupamentos indicam a existência de relações entre as variáveis constituintes. Assim, ao registrar o nome de cada variável, deve-se o identificador de seu agrupamento e a unidade de medida correspondente (Tabela \@ref(tab:mapeamento-de-variaveis-ces)).
+
+```{r, mapeamento-de-variaveis-ces, echo = FALSE, result = 'asis'}
+```
+
+## Laboratórios responsáveis
+
+O mapeamento de variáveis exige que todas as tabelas de dados de um trabalho de pesquisa sejam analisadas. Por exemplo, os autores podem escolher dispor diferentes agrupamentos de variáveis em tabelas distintas. Isso é bastante comum no caso de dissertações, teses e publicações em periódicos científicos. No caso de relatórios de levantamentos pedológicos, isso costuma acontecer quando são reutilizados dados provenientes de trabalhos pretéritos. Também acontece quando dois ou mais laboratórios são contratados para realizar as determinações analíticas. Para lidar com essa variedade, a primeira edição do Manual Técnico de Pedologia do IBGE chegou a incluir os formulários utilizados por diferentes laboratórios para apresentar dados de análises físicas e químicas do solo[@Souza1995].
+
+A Figura \@ref(fig:radam-perfil-06-tabelas-ipean) mostra os dados do perfil n° 6 do do volume 10 do Projeto RADAMBRASIL. Os dados estão dispostos em quatro tabelas, totalizando 34 variáveis, diferente do perfil n° 49, com suas três tabelas e 29 variáveis. A razão para a diferença é a origem dos dados. Enquanto as amostras do perfil n° 49 foram analisadas no antigo Centro de Estudo de Solos (CES) da Escola Superior de Agricultura "Luiz de Queiroz", os dados do perfil n° 6 foram produzidos pelo Instituto de Pesquisas Agropecuárias do Norte (IPEAN), hoje Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA).
+
+```{r, radam-perfil-06-tabelas-ipean, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 6 do do volume 10 do Projeto RADAMBRASIL.", out.width = "70%", fig.align = "center", echo = FALSE}
+```
+
+A Tabela \@ref(tab:mapeamento-de-variaveis-ces-ipean) mostra o mapeamento de variáveis resultante da análise dos dados dos perfis 6 e 49. Além da inclusão das novas variáveis identificadas após a análise dos dados do perfil 49, uma coluna foi criada para identificar o laboratório de origem dos dados de cada variável. Por exemplo, a variável "Esqueleto % > 2 mm" foi mensurada apenas nas amostras analisadas no laboratório do CES, enquanto o que no laboratório do IPEAN foram mensuradas as frações "Calhau > 20 mm" e "Cascalho 20-2 mm". Já variáveis como "Argila < 0,002 mm" e "Silte 0,05-0,002 mm" foram mensuradas nas amostras analisadas pelos dois laboratórios.
+
+```{r, mapeamento-de-variaveis-ces-ipean, echo = FALSE, result = 'asis'}
+```
+
+## Descrição dos métodos
+
+A presença de dados de origens distintas em um mesmo trabalho de pesquisa requer cuidado redobrado na compilação dos métadados de métodos. Como vimos na seção anterior, isso costuma significar a presença de variáveis distintas. Contudo, é possível que métodos diferentes tenham sido utilizados para produzir dados de uma mesma variável. Por exemplo, os laboratórios podem ter utilizado os mesmos reagentes mas em concentrações diferentes. Quando isso acontece, em vez da mesma variável, cada laboratório produziu dados de variáveis operacionalmente distintas. Assim como no exemplo dos dados taxonômicos discutido anteriormente, o reúso conjunto desses dados normalmente exigirá algum tipo de pré-processamento.
+
+Os métodos utilizados para produzir os dados de solos publicados no volume 10 do Projeto RADAMBRASIL estão descritos na seção "Metodologia do Levantamento" daquele documento. A Tabela \@ref(tab:descricao-de-metodos) mostra a descrição dos métodos relativos às variáveis usadas nos exemplos anteriores. Como se pode ver, não há qualquer indicação de que os laboratórios do CES e IPEAN tenham utilizado métodos distintos para determinação das variáveis comuns entre eles. Isso significa que, neste trabalho, a origem dos dados não define novas variáveis dentre aquelas consideradas até agora.
+
+```{r, descricao-de-metodos, echo = FALSE, result = 'asis'}
+```
+
+Uma características que deve ser notada na Tabela \@ref(tab:descricao-de-metodos) é a repetição do texto da descrição para as variáveis sob um mesmo agrupamento. Em geral, os trabalhos de pesquisa também costumam apresentar a descrição dos métodos de determinação de variáveis relacionadas de maneira agrupada. A mais comum das razões é o fato de variáveis agrupadas terem sido mensuradas de modo sequencial ao longo de um procedimento analítico. Esse é o caso da composição granulométrica, em que cada variável é determinada numa etapa de [sedimentacão][sedimentacao] ou [tamisação][tamisacao].
+
+[sedimentacao]: https://pt.wikipedia.org/wiki/Sedimenta%C3%A7%C3%A3o
+[tamisacao]: https://pt.wikipedia.org/wiki/Tamisa%C3%A7%C3%A3o
+
+## Unidades de medida
+
+
+
+Tabela \@ref(tab:metodos-unidade-de-medida)
+
+
+```{r, metodos-unidade-de-medida, echo = FALSE, result = 'asis'}
+```
+
+Isso pode acontecer por razão da natureza das relações teóricas existentes entre as variáveis.
+
+## Problemas comuns
+
+**Variáveis sem descrição dos métodos.** Não é raro encontrar trabalhos em que a descrição dos métodos utilizados para produzir os dados de algumas ou todas as variáveis foi omitida. Isso acontece, principalmente, em trabalhos que não passam por rigorosa revisão por pares, como é o caso de relatórios de levantamentos pedológicos. Nesses casos, a melhor solução é indicar apenas a referência bibliográfica
+
+<!--chapter:end:compilacao-de-metadados-de-metodos.Rmd-->
+
+
+# Cor do Solo
+
+Placeholder
+
+
+## Conceitos e definições
+## Métodos de determinação
+## Fontes de variação
+## Padronização
+## Exemplo
+
+<!--chapter:end:morfologia-cor-do-solo.Rmd-->
+
+
+# Densidade
+
+Placeholder
+
+
+## Conceitos e definições
+## Métodos de determinação
+## Fontes de variação
+## Padronização
+## Harmonização
+## Agradecimentos
+
+<!--chapter:end:fisica-densidade.Rmd-->
+
+# Classificação Taxonômica
+
+_Alessandro Samuel-Rosa_[^alessandro]
+
+```{r, echo = FALSE, include = FALSE}
+knitr::read_chunk("classificacao-taxonomica.R")
+```
+
+## Conceitos e definições
+
+## Padronização
+
+A Tabela \@ref(tab:taxon-campo-id) apresenta os códigos padronizados utilizados para identificar os métodos de determinação da classificação taxonômica de perfis de solo.
+
+```{r, taxon-campo-id, echo = FALSE, results = 'asis'}
+```
+
+<!--chapter:end:classificacao-taxonomica.Rmd-->
+
+`r if (knitr::is_html_output()) '
+# Referências {-}
+'`
+
+<!--chapter:end:referencias.Rmd-->
+

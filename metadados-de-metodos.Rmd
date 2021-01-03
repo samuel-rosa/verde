@@ -42,36 +42,3 @@ O último grupo de colunas da tabela metadado está destinado à identificação
 ```{r, laboratorio, echo = FALSE, results = 'asis'}
 ```
 
-## Compilação de metadados
-
-```{r, etapas-da-compilacao-de-metadados-de-metodos, echo = FALSE}
-```
-
-### Mapeamento de variáveis
-
-O **mapeamento de variáveis** consiste na identificação das variáveis do solo publicadas num trabalho de pesquisa, incluindo as relações entre elas e sua origem. Existem diferentes maneira de fazer esse mapeamento. Cada uma delas será mais eficiente a depender do tipo de trabalho de pesquisa considerado. Por exemplo, trabalhos de levantamento pedológico costumam apresentar os dados das variáveis do solo em seção própria logo após a descrição dos métodos de trabalho empregados ou como anexo no final do relatório. Isso facilita o mapeamento das variáveis do solo, especialmente quando o serviço de compilação é realizado por terceiros com conhecimento incompleto da natureza dos dados.
-
-Vamos utilizar dados de um levantamento pedológico para compreender como funciona o mapeamento de variáveis. A Figura \@ref(fig:radam-perfil-49-tabelas-ces) apresenta dados reais de variáveis físicas e químicas do perfil de solo n° 49 do volume 10 do [Projeto RADAMBRASIL](https://www.ibge.gov.br/)[@VianaEtAl1976]. O código de identificação do conjunto de dados proveniente deste trabalho no FEBR é `ctb0711`.
-
-```{r, radam-perfil-49-tabelas-ces, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 49 do do volume 10 do Projeto RADAMBRASIL.", out.width = "100%", echo = FALSE}
-```
-
-Os dados do perfil n° 49 estão organizados em três tabelas. Cada tabela contém dados de um conjunto de variáveis, dispostas nas colunas, para as cinco camadas amostradas (`A1`, `A3`, `B1`, `B21` e `B22`), dispostas nas linhas. A primeira das tabelas possui nove colunas, o que corresponde a nove variáveis do solo. Algumas delas estão agrupadas sob uma denominação mais ampla disposta no interior células mescladas na parte superior da tabela. São dois agrupamentos: "Horizonte" e "Comp Granulométrica % (tfsa)". A identificação desses agrupamentos é muito importante e será analisada em maior detalhe na próxima seção. Por enquanto, basta ficar evidente que esses agrupamentos indicam a existência de relações entre as variáveis constituintes. Assim, ao registrar o nome de cada variável, deve-se registrar o identificador de seu agrupamento, assim como a unidade de medida correspondente (Tabela \@ref(tab:mapeamento-de-variaveis-ces)). Em outras palavras, deve-se registrar o cabeçalho completo de cada coluna.
-
-```{r, mapeamento-de-variaveis-ces, echo = FALSE, result = 'asis'}
-```
-
-O mapeamento de variáveis exige que todas as tabelas de dados de um trabalho de pesquisa sejam analisadas. Por exemplo, os autores podem escolher dispor diferentes agrupamentos de variáveis em tabelas distintas. Isso é bastante comum no caso de dissertações, teses e publicações em periódicos científicos. No caso de relatórios de levantamentos pedológicos, isso costuma acontecer quando são reutilizados dados provenientes de trabalhos pretéritos. Também acontece quando dois ou mais laboratórios são contratados para realizar as determinações analíticas. Para lidar com essa variedade, a primeira edição do Manual Técnico de Pedologia chegou a incluir os formulários utilizados pelos diferentes laboratórios para apresentar dados de análises físicas e químicas do solo[@Souza1995].
-
-A Figura \@ref(fig:radam-perfil-06-tabelas-ipean) mostra os dados do perfil n° 6 do do volume 10 do Projeto RADAMBRASIL. Agora os dados estão dispostos em quatro tabelas, totalizando 34 variáveis, diferente do perfil n° 49, com suas três tabelas e 29 variáveis. A razão para a diferença é a origem dos dados. Enquanto as amostras do perfil n° 49 foram analisadas no antigo Centro de Estudo de Solos (CES) da Escola Superior de Agricultura "Luiz de Queiroz", os dados do perfil n° 6 foram produzidos pelo Instituto de Pesquisas Agropecuárias do Norte (IPEAN), hoje Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA).
-
-```{r, radam-perfil-06-tabelas-ipean, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 6 do do volume 10 do Projeto RADAMBRASIL.", out.width = "100%", echo = FALSE}
-```
-
-```{r, mapeamento-de-variaveis-ces-ipean, echo = FALSE, result = 'asis'}
-```
-
-### Identificação dos métodos
-
-* O segundo passo é identificar a descrição das rotinas analíticas.
-  * A descrição das rotinas analíticas costuma estar na seção Material e Métodos, Procedimentos laboratoriais, ou similar.
