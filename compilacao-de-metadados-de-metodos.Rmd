@@ -52,14 +52,12 @@ Em geral, os trabalhos de pesquisa apresentam a descrição dos métodos de dete
 
 ## Unidades de medida
 
-A última etapa da compilação de metadados de métodos consiste na identificação das unidades de medida das variáveis. A principal razão para isso está relacionada à origem dos dados. É possível que cada laboratório apresente os dados de uma mesma variável utilizando unidades de medida distintas. Quando isso acontece, temos em mãos variáveis operacionalmente distintas, mesmo que os laboratórios tenham empregado exatamente o mesmo procedimento analítico. Esse não é o caso das variáveis usadas como exemplo até aqui, sendo suficiente mover as unidades de medida para sua própria coluna (Tabela \@ref(tab:metodos-unidade-de-medida)). Do contrário, também seria necessário inserir linhas para identificar as novas variáveis e suas respectivas unidades de medida.
+A última etapa da compilação de metadados de métodos consiste na identificação das unidades de medida das variáveis. A principal razão para isso está relacionada à origem dos dados. É possível que cada laboratório contratado apresente os dados de uma mesma propriedade do solo utilizando unidades de medida distintas. Quando isso acontece, temos em mãos variáveis numericamente distintas, mesmo que os laboratórios tenham empregado exatamente o mesmo procedimento analítico para sua mensuração. Esse não é o caso das variáveis usadas como exemplo até aqui. Todas são expressas usando a mesma unidade de medida ao longo do documento. Assim, é suficiente mover as mesmas para sua própria coluna (Tabela \@ref(tab:metodos-unidade-de-medida)). Do contrário, seria necessário adicionar linhas à Tabela \@ref(tab:metodos-unidade-de-medida) para identificar as novas variáveis e suas respectivas unidades de medida.
 
 ```{r, metodos-unidade-de-medida, echo = FALSE, result = 'asis'}
 ```
 
-
-
-Isso pode acontecer por razão da natureza das relações teóricas existentes entre as variáveis.
+A identificação das unidades de medida das variáveis também costuma depender da compilação prévia da descrição dos métodos analíticos. Por exemplo, algumas variáveis são agrupadas nas tabelas de dados por compartilharem a mesma unidade de medida. Contudo, diferente das variáveis usadas nos exemplos anteriores, são quantificadas em rotinas analíticas distintas. Esse é o caso das variáveis agrupadas sob "Complexo Sortivo (mE/100g)" na Figura \@ref(fig:radam-perfil-06-tabelas-ipean) e \@ref(fig:radam-perfil-49-tabelas-ces).
 
 ## Problemas comuns
 
@@ -74,3 +72,5 @@ Em geral, procedimento mais adequado consiste em registrar os problemas identifi
 [escalar]: https://pt.wikipedia.org/wiki/Grandeza_escalar
 
 **Citação inconsistente de referências.** A primeira edição do Manual de Métodos de Análise de Solo da EMBRAPA iniciou a cultura de identificar os métodos analíticos por um código numérico [CITAÇÃO]. Nos nos seguintes, muitos pesquisadores passaram a omitir a descrição dos métodos analíticos em seus trabalhos, indicando apenas seu código identificador. Esses identificadores foram descartados na segunda edição do Manual [CITAÇÃO]. Entretanto, alguns pesquisadores continuaram fazendo referência aos códigos da edição de 1979, mesmo que estivessem usando a edição de 1997 ou mais recente. Em geral, esse equívoco parece ser resultado da reutilização deliberada de descrições de procedimentos metodológicos publicados em trabalhos anteriores realizados pelos mesmos autores. A ação recomendada consiste em registrar o observado e contactar os autores ou cientistas do solo experientes.
+
+**Nomenclatura diferente na descrição e tabelas.** Esse é o caso da propriedade "Fósforo assimilável", expressa como P~2~O~5~ (mg/100g) e PO~4~^-3^ (mE/100g) nas tabelas de dados dos perfis 49 e 6.
