@@ -6,6 +6,13 @@ _Alessandro Samuel-Rosa_[^alessandro]
 knitr::read_chunk("resgate-de-metadados-de-metodos.R")
 ```
 
+O objeto de interesse da segunda etapa do resgate de conjuntos de dados são os metadados de métodos.
+Os metadados de métodos consistem em dados sobre como os dados das variáveis publicadas num trabalho de pesquisa foram produzidos.
+Eles descrevem os elementos que determinam o resultado de uma rotina analítica.
+Por exemplo, o método de amostragem, o processamento das amostras, os equipamentos e reagentes utilizados, entre outros.
+Assim, cada variável do solo é definida, operacionalmente, pelos dados sobre o método usado para sua mensuração.
+Consulte o Capítulo \@ref(metadados-de-metodos) para uma discussão mais detalhada sobre metadados de métodos.
+
 ## Levantamento das variáveis
 
 A primeira etapa da compilação de metadados de métodos de um trabalho de pesquisa consiste no levantamento das variáveis do solo nele publicadas. Existem diferentes maneira de fazer esse levantamento. Cada uma delas será mais eficiente a depender do tipo de trabalho de pesquisa sendo processado. Por exemplo, relatórios de trabalhos de mapeamento de solos costumam apresentar os dados das variáveis do solo em seção própria, tanto logo após a descrição dos métodos de trabalho empregados, como na forma de anexo no final do documento. Isso facilita o levantamento das variáveis do solo, especialmente quando o serviço de compilação é realizado por terceiros com conhecimento incompleto da natureza dos dados.
