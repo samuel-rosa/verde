@@ -15,69 +15,149 @@ Consulte o Capítulo \@ref(metadados-de-metodos) para uma discussão mais detalh
 
 ## Levantamento das variáveis
 
-A primeira etapa da compilação de metadados de métodos de um trabalho de pesquisa consiste no levantamento das variáveis do solo nele publicadas. Existem diferentes maneira de fazer esse levantamento. Cada uma delas será mais eficiente a depender do tipo de trabalho de pesquisa sendo processado. Por exemplo, relatórios de trabalhos de mapeamento de solos costumam apresentar os dados das variáveis do solo em seção própria, tanto logo após a descrição dos métodos de trabalho empregados, como na forma de anexo no final do documento. Isso facilita o levantamento das variáveis do solo, especialmente quando o serviço de compilação é realizado por terceiros com conhecimento incompleto da natureza dos dados.
+A primeira tarefa do resgate de metadados de métodos de um trabalho de pesquisa consiste no levantamento das variáveis do solo nele publicadas.
+Existem diferentes maneira de fazer esse levantamento.
+Cada uma delas será mais eficiente a depender do tipo de trabalho de pesquisa sendo processado.
+Por exemplo, relatórios de trabalhos de mapeamento de solos costumam apresentar os dados das variáveis do solo em seção própria.
+Eles podem estar logo após a descrição dos métodos de trabalho empregados ou como anexo no final do documento.
+Isso facilita o levantamento das variáveis do solo, especialmente quando o serviço de compilação é realizado por terceiros com conhecimento incompleto da natureza dos dados.
 
-Vamos utilizar dados reais de um trabalho de mapeamento de solos para mostrar como realizar o levantamento de variáveis. A Figura \@ref(fig:radam-perfil-49-tabelas-ces) apresenta dados de variáveis físicas e químicas do perfil de solo n° 49 do volume 10 do [Projeto RADAMBRASIL](https://www.ibge.gov.br/)[@VianaEtAl1976]. O código de identificação do conjunto de dados proveniente deste trabalho no FEBR é `ctb0711`.
+<!-- Esse conjunto de dados será usado como exemplo em capítulos anteriores? -->
+Vamos utilizar dados reais de um trabalho de mapeamento de solos para mostrar como realizar o levantamento de variáveis.
+A Figura \@ref(fig:radam-perfil-49-tabelas-ces) apresenta dados de variáveis físicas e químicas do perfil de solo n° 49 do volume 10 do [Projeto RADAMBRASIL](https://www.ibge.gov.br/)[@VianaEtAl1976].
+O código de identificação do conjunto de dados proveniente deste trabalho no FEBR é `ctb0711`.
 
 ```{r, radam-perfil-49-tabelas-ces, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 49 do volume 10 do Projeto RADAMBRASIL.", out.width = "70%", fig.align = "center", echo = FALSE}
 ```
 
-Os dados do perfil n° 49 estão organizados em três tabelas. Cada tabela contém dados de um conjunto de variáveis, dispostas nas colunas, para os cinco horizontes amostrados (`A1`, `A3`, `B1`, `B21` e `B22`), dispostos nas linhas. A primeira das tabelas possui nove colunas, o que corresponde a nove variáveis do solo. Algumas delas estão agrupadas sob uma denominação mais ampla disposta no interior células mescladas na parte superior da tabela. São dois agrupamentos: "Horizonte" e "Comp Granulométrica % (tfsa)". A correta identificação desses agrupamentos é essencial e será analisada em maior detalhe nas próximas seções. Por enquanto, basta ficar evidente que esses agrupamentos indicam a existência de relações entre as variáveis constituintes. Assim, o registro de cada variável deve incluir o cabeçalho completo da coluna, ou seja, o nome da variável, a identificação do agrupamento ao qual pertence e a unidade de medida correspondente (Tabela \@ref(tab:mapeamento-de-variaveis-ces)).
+Os dados do perfil n° 49 estão organizados em três tabelas.
+Cada tabela contém dados de um conjunto de variáveis, dispostas nas colunas, para os cinco horizontes amostrados (`A1`, `A3`, `B1`, `B21` e `B22`), dispostos nas linhas.
+A primeira das tabelas possui nove colunas, o que corresponde a nove variáveis do solo.
+Algumas delas estão agrupadas sob uma denominação mais ampla disposta no interior células mescladas na parte superior da tabela.
+São dois agrupamentos: "Horizonte" e "Comp Granulométrica % (tfsa)".
+A correta identificação desses agrupamentos é essencial e será analisada em maior detalhe nas próximas seções.
+Por enquanto, basta ficar evidente que esses agrupamentos indicam a existência de relações entre as variáveis constituintes.
+Assim, o registro de cada variável deve incluir o cabeçalho completo da coluna, ou seja, o nome da variável, a identificação do agrupamento ao qual pertence e a unidade de medida correspondente (Tabela \@ref(tab:mapeamento-de-variaveis-ces)).
 
 ```{r, mapeamento-de-variaveis-ces, echo = FALSE, result = 'asis'}
 ```
 
-## Laboratórios responsáveis
+## Origem dos dados
 
-O levantamento completo das variáveis publicadas em um trabalho de pesquisa exige que todas as tabelas de dados sejam analisadas. Uma das razões para isso é o fato de que os autores do trabalho podem ter escolhido dispor os diferentes grupos de variáveis (morfológicas, físicas, químicas etc) em tabelas distintas dispostas ao longo do documento. Essa prática é bastante comum em dissertações, teses e artigos publicados em periódicos científicos. Além disso, os diferentes grupos de variáveis podem ter sido produzidos por laboratórios distintos, escolhidos em função de sua especialidade ou disponibilidade de equipamentos específicos.
+O levantamento completo das variáveis publicadas em um trabalho de pesquisa exige que todas as tabelas de dados sejam analisadas.
+Uma das razões para isso é o fato de que os autores do trabalho podem ter escolhido apresentar os diferentes grupos de variáveis (morfológicas, físicas, químicas etc) em tabelas distintas dispostas ao longo do documento.
+Essa prática é comum em dissertações, teses e artigos publicados em periódicos científicos.
+Além disso, os dados de algumas poucas variáveis podem ter sido produzidos em um segundo laboratório, contratado em função de sua especialidade ou disponibilidade de equipamentos.
+Quando isso ocorre, a identificação do laboratório responsável por produzir os dados de uma variável passa a fazer parte de sua definição operacional, devendo ser apropriadamente registrada.
 
-Trabalhos de mapeamento de solos também podem contratar os serviços de diferentes laboratórios de análises. Isso é comum quando os trabalhos cobrem grandes extensões ou envolvem duas ou mais instituições executoras. Nesses casos, cada laboratório fica responsável por analisar diferentes conjuntos de amostras de solos. Todos os laboratórios envolvidos produzem dados de um mesmo conjunto de variáveis do solo. Contudo, a depender da especialidade e rotinas analíticas adotadas, cada laboratório geralmente produz dados de outras variáveis. Para lidar com essa variedade, a primeira edição do Manual Técnico de Pedologia do IBGE chegou a incluir os formulários utilizados por diferentes laboratórios para apresentar dados de análises físicas e químicas do solo[@Souza1995].
+Trabalhos de mapeamento de solos também contratam os serviços de diferentes laboratórios de análises.
+Isso é mais comum quando os trabalhos cobrem grandes extensões ou envolvem duas ou mais instituições executoras.
+Na maioria das vezes, cada laboratório fica responsável por analisar diferentes conjuntos de amostras.
+Todos os laboratórios envolvidos produzem dados de um mesmo conjunto mínimo de propriedades do solo.
+Contudo, a depender de sua especialidade ou rotina analítica, cada laboratório acaba produzindo dados de algumas variáveis adicionais[@Souza1995].
 
-A Figura \@ref(fig:radam-perfil-06-tabelas-ipean) mostra os dados físicos e químicos do perfil n° 6 do volume 10 do Projeto RADAMBRASIL. Os dados estão dispostos em quatro tabelas, totalizando 34 variáveis, diferente do perfil n° 49, com suas três tabelas e 29 variáveis (Figura \@ref(fig:radam-perfil-49-tabelas-ces)). A razão para essa diferença é o laboratório de origem dos dados. Enquanto as amostras do perfil n° 49 foram analisadas no antigo Centro de Estudo de Solos (CES) da Escola Superior de Agricultura "Luiz de Queiroz", os dados do perfil n° 6 foram produzidos pelo Instituto de Pesquisas Agropecuárias do Norte (IPEAN), hoje Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA).
+A Figura \@ref(fig:radam-perfil-06-tabelas-ipean) mostra os dados físicos e químicos do perfil n° 6 do volume 10 do Projeto RADAMBRASIL.
+Os dados estão dispostos em quatro tabelas, totalizando 34 variáveis, diferente do perfil n° 49, com suas três tabelas e 29 variáveis (Figura \@ref(fig:radam-perfil-49-tabelas-ces)).
+A razão para essa diferença é a origem dos dados.
+As amostras do perfil n° 49 foram analisadas no antigo Centro de Estudo de Solos (CES) da Escola Superior de Agricultura "Luiz de Queiroz".
+Já os dados do perfil n° 6 foram produzidos pelo Instituto de Pesquisas Agropecuárias do Norte (IPEAN), hoje Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA).
 
 ```{r, radam-perfil-06-tabelas-ipean, fig.cap = "Dados de variáveis químicas e físicas mensuradas em amostras do perfil n° 6 do do volume 10 do Projeto RADAMBRASIL.", out.width = "70%", fig.align = "center", echo = FALSE}
 ```
 
-A análise dos dados do perfil n° 6 levou a atualização da lista de variáveis (Tabela \@ref(tab:mapeamento-de-variaveis-ces-ipean)). Além da inclusão das novas variáveis identificadas, uma coluna foi criada para identificar o laboratório de origem dos dados de cada variável. Por exemplo, a variável "Esqueleto % > 2 mm" foi mensurada apenas nas amostras analisadas no laboratório do CES. Enquanto isso, no laboratório do IPEAN foram mensuradas as frações "Calhau > 20 mm" e "Cascalho 20-2 mm". Já variáveis como "Argila < 0,002 mm" e "Silte 0,05-0,002 mm" foram mensuradas nas amostras analisadas pelos dois laboratórios.
+A análise dos dados do perfil n° 6 levou a atualização da lista de variáveis identificadas (Tabela \@ref(tab:mapeamento-de-variaveis-ces-ipean)).
+Além da inclusão das novas variáveis, foi possível popular a coluna de identificação da origem dos dados de cada variável.
+Por exemplo, a variável "Esqueleto % > 2 mm" foi mensurada apenas nas amostras analisadas no laboratório do CES.
+Enquanto isso, no laboratório do IPEAN foram mensuradas as frações "Calhau > 20 mm" e "Cascalho 20-2 mm".
+Já variáveis como "Argila < 0,002 mm" e "Silte 0,05-0,002 mm" foram mensuradas nas amostras analisadas pelos dois laboratórios.
 
 ```{r, mapeamento-de-variaveis-ces-ipean, echo = FALSE, result = 'asis'}
 ```
 
 ## Descrição dos métodos
 
-A presença de dados de origens distintas em um trabalho de pesquisa requer cuidado redobrado durante a compilação dos metadados de métodos. Conforme visto na seção anterior, cada laboratório costuma produzir dados de um conjunto distinto de variáveis. Contudo, é possível que os laboratórios empreguem métodos distintos para produzir os dados de uma mesma variável. Por exemplo, eles podem ter utilizado os mesmos reagentes mas em concentrações diferentes. Do ponto de vista operacional, isso significa que cada laboratório produziu dados de variáveis distintas. Assim como no exemplo dos dados taxonômicos discutido anteriormente, o reúso desses dados normalmente exigirá algum tipo de pré-processamento.
+A presença de dados de origens distintas em um trabalho de pesquisa requer cuidado redobrado durante a compilação dos metadados de métodos.
+Conforme visto na seção anterior, cada laboratório costuma produzir dados de um conjunto distinto de variáveis.
+Contudo, é possível que os laboratórios empreguem métodos distintos para produzir os dados de uma mesma propriedade do solo.
+Por exemplo, eles podem ter utilizado os mesmos reagentes mas em concentrações diferentes.
+Do ponto de vista da gestão de dados, isso significa que os laboratórios produziram dados de variáveis (operacionalmente) distintas.
+O reúso desses conjunto desses dados normalmente exigirá algum tipo de processamento para sua harmonização prévia.
 
-Os métodos utilizados para produzir os dados de solos publicados no volume 10 do Projeto RADAMBRASIL estão descritos na seção "Metodologia do Levantamento" daquele documento. A Tabela \@ref(tab:descricao-de-metodos) mostra a descrição dos métodos relativos às variáveis usadas nos exemplos anteriores. Não há qualquer indicação de que os laboratórios do CES e IPEAN tenham utilizado métodos distintos para determinação das variáveis comuns entre eles. Isso significa que, neste trabalho, a origem dos dados não define novas variáveis dentre aquelas consideradas até agora.
+Os métodos utilizados para produzir os dados das variáveis publicadas no volume 10 do Projeto RADAMBRASIL estão descritos na seção "Metodologia do Levantamento" daquele documento.
+A Tabela \@ref(tab:descricao-de-metodos) mostra a descrição dos métodos relativos às variáveis usadas nos exemplos das seções anteriores.
+Não há nenhum indicação de que os laboratórios do CES e IPEAN tenham utilizado métodos distintos para determinação das propriedades do solo comuns entre eles.
+Isso significa que, a origem dos dados não define novas variáveis dentre aquelas consideradas até agora.
+O Capítulo \@ref(#resgate-de-dados) discutirá sobre a maneira mais eficiente de indicar a origem dos dados em casos como esse.
 
 ```{r, descricao-de-metodos, echo = FALSE, result = 'asis'}
 ```
 
-Em geral, os trabalhos de pesquisa apresentam a descrição dos métodos de determinação de variáveis relacionadas de maneira agrupada. A mais comum das razões é o fato de variáveis agrupadas terem sido mensuradas de modo sequencial ao longo de um procedimento analítico. Esse é o caso da composição granulométrica, em que cada variável é determinada numa etapa de [sedimentacão][sedimentacao] ou [tamisação][tamisacao]. Em princípio, durante a compilação dos metadados de métodos, seria possível decompor essas descrições em cada uma das etapas do procedimento analítico. Contudo, para garantir a integridade dos metadados, é recomendável que a descrição do procedimento analítico seja repetido para todas as variáveis sob um mesmo agrupamento (Tabela \@ref(tab:descricao-de-metodos)).
+Em geral, os trabalhos de pesquisa apresentam a descrição dos métodos de determinação de variáveis relacionadas de maneira agrupada.
+A mais comum das razões é o fato de tais variáveis terem sido mensuradas, em sequência, ao longo de um mesmo procedimento analítico.
+Esse é o caso da composição granulométrica, em que cada variável é determinada numa etapa de [sedimentacão][sedimentacao] ou [tamisação][tamisacao] realizada uma após a outra.
+Em princípio, durante a compilação dos metadados de métodos, seria possível decompor essas descrições em cada uma das etapas do procedimento analítico.
+Contudo, é recomendável que a descrição do procedimento analítico seja repetida para todas as variáveis sob um mesmo agrupamento (Tabela \@ref(tab:descricao-de-metodos)).
+Isso garante a integridade dos metadados e facilita o trabalho de equipes com conhecimento limitado sobre os métodos.
 
 [sedimentacao]: https://pt.wikipedia.org/wiki/Sedimenta%C3%A7%C3%A3o
 [tamisacao]: https://pt.wikipedia.org/wiki/Tamisa%C3%A7%C3%A3o
 
 ## Unidades de medida
 
-A última etapa da compilação de metadados de métodos consiste na identificação das unidades de medida das variáveis. A principal razão para isso está relacionada à origem dos dados. É possível que cada laboratório contratado apresente os dados de uma mesma propriedade do solo utilizando unidades de medida distintas. Quando isso acontece, temos em mãos variáveis numericamente distintas, mesmo que os laboratórios tenham empregado exatamente o mesmo procedimento analítico para sua mensuração. Esse não é o caso das variáveis usadas como exemplo até aqui. Todas são expressas usando a mesma unidade de medida ao longo do documento. Assim, é suficiente mover as mesmas para sua própria coluna (Tabela \@ref(tab:metodos-unidade-de-medida)). Do contrário, seria necessário adicionar linhas à Tabela \@ref(tab:metodos-unidade-de-medida) para identificar as novas variáveis e suas respectivas unidades de medida.
+A última tarefa da compilação de metadados de métodos é a identificação das unidades de medida das variáveis.
+A principal razão para deixar essa tarefa por último está relacionada à origem dos dados.
+É possível que dados de uma mesma propriedade do solo, mas de diferentes origens, sejam expressos utilizando unidades de medida distintas.
+Quando isso acontece, temos em mãos variáveis numericamente distintas, mesmo que os laboratórios tenham empregado o mesmo procedimento analítico para produzir os dados.
+Esse não é o caso das propriedades do solo analisadas pelos laboratórios do CES e IPEAN (Tabela \@ref(tab:metodos-unidade-de-medida)).
+Todas são expressas usando a mesma unidade de medida, independente da origem.
+Assim, é suficiente mover as mesmas para sua própria coluna .
+Do contrário, seria necessário adicionar linhas à Tabela \@ref(tab:metodos-unidade-de-medida) para identificar as novas variáveis, seu laboratório de origem e respectiva unidade de medida.
 
 ```{r, metodos-unidade-de-medida, echo = FALSE, result = 'asis'}
 ```
 
-A identificação das unidades de medida das variáveis também costuma depender da compilação prévia da descrição dos métodos analíticos. Por exemplo, algumas variáveis são agrupadas nas tabelas de dados por compartilharem a mesma unidade de medida. Contudo, diferente das variáveis usadas nos exemplos anteriores, são quantificadas em rotinas analíticas distintas. Esse é o caso das variáveis agrupadas sob "Complexo Sortivo (mE/100g)" na Figura \@ref(fig:radam-perfil-06-tabelas-ipean) e \@ref(fig:radam-perfil-49-tabelas-ces). Além disso, é possível que algumas unidades de medida, omitidas das tabelas de dados, estejam definidas junto da descrição dos métodos.
+Note que nessa versão final da tabela de resgate de metadados de métodos, o nome de cada uma das variáveis foi encurtado.
+Foram removidas a identificação dos agrupamentos e as unidades de medida.
+Assim como as unidades de medida, a correta identificação do nome das variáveis só pode ser feita após o levantamento da descrição dos métodos.
+Qualquer processamento prévio deve ser evitado, especialmente quando se tem conhecimento limitado sobre a natureza dos dados e os métodos de análise de solo.
 
 ## Problemas comuns
 
-Em geral, procedimento mais adequado consiste em registrar os problemas identificados durante a compilação dos dados. Em seguida, deve-se contactar os autores do trabalho de pesquisa para encontrar a solução mais eficiente para os problemas. Caso isso não seja possível, a melhor alternativa é procurar pela ajuda de cientistas do solo com conhecimento do trabalho de pesquisa ou experientes no tema.
+O resgate de metadados de métodos costuma ser uma tarefa em que encontramos diversos problemas.
+Os problemas mais comuns são discutidos nos parágrafos a seguir.
 
-**Variáveis sem descrição de métodos.** É comum encontrar trabalhos de pesquisa em que a descrição dos métodos utilizados para produzir os dados de algumas variáveis foi omitida. Isso acontece, principalmente, em trabalhos que não passam por rigorosa revisão por pares, como é o caso de relatórios de levantamentos pedológicos e, inclusive, dissertações e teses. Nesses casos, a melhor solução é indicar apenas a referência bibliográfica completa dos manuais de métodos citados no trabalho de pesquisa. Somente cientistas do solo experientes, após detalhada análise do trabalho de pesquisa, têm condições de especificar quais métodos têm mais chance de terem sido utilizados para produzir os dados.
+**Variáveis sem descrição de métodos.**
+Alguns trabalhos de pesquisa omitem a descrição do método de produção dos dados de uma ou mais variáveis presentes em suas tabelas de dados.
+Isso é mais comum em trabalhos que não passaram por rigorosa revisão por pares.
+Nesses casos, no lugar da descrição do método, deve-se registrar a referência bibliográfica completa do respectivo manual de métodos de análise citado.
+Somente os autores do trabalho têm condições de especificar quais métodos foram utilizados.
+Cientistas do solo experientes, após detalhada análise do trabalho de pesquisa, podem apenas sugerir quais são os métodos com mais chance de terem sido utilizados.
 
-**Descrição de métodos de variáveis inexistentes.** Alguns trabalhos de pesquisa incluem a descrição de métodos analíticos sem apresentar quaisquer dados produzidos utilizando os mesmos. Esse tipo de problema tem sido mais comum em trabalhos de levantamentos pedológicos que, conforme dito acima, não passam por revisão por pares rigorosa. A razão dessa inconsistência costuma ser o fato de os autores copiarem a descrição dos métodos de seus trabalhos anteriores em que aquelas variáveis foram mensuradas. Durante a compilação dos metadados de métodos, deve-se registrar essas ocorrências para mais tarde entrar em contato com os autores do trabalho de pesquisa. Essa é a única maneira segura de ter certeza sobre a razão desse tipo de inconsistência.
+**Descrição de métodos de variáveis inexistentes.**
+Este problema é o contrário do anterior, ou seja, alguns trabalhos de pesquisa incluem a descrição de métodos analíticos de variáveis que não estão presentes em suas tabelas de dados.
+Novamente, isso é mais comum em trabalhos que não passaram por rigorosa revisão por pares.
+Em geral, este problema parece ter origem no reaproveitamento de descrições de métodos usados em trabalhos anteriores dos autores em que aquelas variáveis foram mensuradas.
+Durante o resgate dos metadados, deve-se registrar essas ocorrências para mais tarde entrar em contato com os autores do trabalho.
+Mesmo cientistas do solo experientes terão muita dificuldade para identificar se tais variáveis foram mensuradas ou não.
 
-**Variáveis com unidade de medida omitida.** Muitas variáveis do solo não possuem unidade de medida, incluindo o pH e as inúmeras razões entre variáveis que se costuma calcular. Contudo, alguns trabalhos equivocadamente omitem as unidades de medida de variáveis que são [grandezas escalares][escalar]. Isso geralmente acontece por descuido dos autores que, de tão acostumados em lidar com aquelas variáveis, não sentem falta de suas unidades de medida para analisar os dados. Quando isso acontecer, deve-se registrar o ocorrido durante a compilação dos dados e solicitar esclarecimentos dos autores.
+**Variáveis com unidade de medida omitida.**
+Muitas variáveis numéricas não possuem unidade de medida, incluindo o pH e as inúmeras razões entre variáveis que se costuma calcular.
+Contudo, alguns trabalhos omitem as unidades de medida de variáveis que são [grandezas escalares][escalar].
+Isso parece acontecer por descuido de autores que, de tão acostumados em lidar com aquelas variáveis, não sentem falta de suas unidades de medida para analisar os dados.
+Assim como para os problemas anteriores, deve-se registrar o ocorrido e solicitar esclarecimentos dos autores.
+Contudo, a depender das variáveis, cientistas do solo experientes costumam ter facilidade em atribuir as unidades de medida corretas se necessário.
 
 [escalar]: https://pt.wikipedia.org/wiki/Grandeza_escalar
 
-**Citação inconsistente de referências.** A primeira edição do Manual de Métodos de Análise de Solo da EMBRAPA iniciou a cultura de identificar os métodos analíticos por um código numérico [CITAÇÃO]. Nos nos seguintes, muitos pesquisadores passaram a omitir a descrição dos métodos analíticos em seus trabalhos, indicando apenas seu código identificador. Esses identificadores foram descartados na segunda edição do Manual [CITAÇÃO]. Entretanto, alguns pesquisadores continuaram fazendo referência aos códigos da edição de 1979, mesmo que estivessem usando a edição de 1997 ou mais recente. Em geral, esse equívoco parece ser resultado da reutilização deliberada de descrições de procedimentos metodológicos publicados em trabalhos anteriores realizados pelos mesmos autores. A ação recomendada consiste em registrar o observado e contactar os autores ou cientistas do solo experientes.
+**Citação de referências inválidas.**
+A primeira edição do Manual de Métodos de Análise de Solo[@Oliveira1979] iniciou a cultura de identificar os métodos analíticos por um código numérico.
+Nos anos seguintes, muitos pesquisadores passaram a omitir a descrição dos métodos analíticos em seus trabalhos, indicando apenas seu código identificador.
+Esses identificadores foram descartados na segunda edição do Manual[@EMBRAPA1997].
+Entretanto, alguns pesquisadores continuaram fazendo referência aos códigos da edição de 1979, mesmo que estivessem usando a edição de 1997 ou mais recente.
+Em geral, esse equívoco parece ser resultado da reutilização de descrições de procedimentos metodológicos publicados em trabalhos anteriores realizados pelos mesmos autores.
+A ação recomendada nestes casos consiste em registrar o observado e contactar os autores ou, em último caso, cientistas do solo experientes.
 
-**Nomenclatura diferente na descrição e tabelas.** Esse é o caso da propriedade "Fósforo assimilável", expressa como P~2~O~5~ (mg/100g) e PO~4~^-3^ (mE/100g) nas tabelas de dados dos perfis 49 e 6.
+**Variável com nomenclatura diferente ao longo do documento.** Alguns trabalhos utilizam nomenclatura diferente para as variáveis na descrição dos métodos e nas tabelas de dados.
+Isso geralmente acontece porque o espaço disponível nas tabelas de dados é limitado, exigindo o uso de formas curtas.
+Contudo, são comuns os casos em que isso parece ocorrer por descuido dos autores, possivelmente por terem reaproveitado uma descrição de métodos de publicação anterior.
+Em geral, cientistas do solo experientes conseguem resolver esse problema com facilidade, sem necessidade de contactar os autores do trabalho.

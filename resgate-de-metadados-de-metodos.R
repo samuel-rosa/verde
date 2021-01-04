@@ -13,12 +13,11 @@ variavel <- c(
   "Grau de floc %",
   "Silte/Argila"
 )
-caption <-
-  "Mapeamento de variáveis: identificação de variáveis, relações entre elas e unidades de medida."
-col.names <- c("Variável", "Método", "Unidade", "Laboratório")
+caption <- "Levantamento das variáveis e relações existentes entre elas."
+col.names <- c("Variável", "Método", "Unidade", "Origem")
 knitr::kable(
-  x = cbind(variavel, medoto = "", unidade = "", laboratorio = ""), caption = caption,
-  col.names = col.names, align = "l", split.tables = Inf)
+  x = cbind(variavel, medoto = "", unidade = "", origem = ""),
+  caption = caption, col.names = col.names, align = "l", split.tables = Inf)
 
 ## ---- radam-perfil-06-tabelas-ipean ----
 knitr::include_graphics("img/radam-perfil-06-tabelas-ipean.png")
@@ -39,7 +38,7 @@ variavel <- c(
   "Grau de floc %",
   "Silte/Argila"
 )
-laboratorio <- c(
+origem <- c(
   "CES; IPEAN",
   "CES; IPEAN",
   "CES",
@@ -54,11 +53,10 @@ laboratorio <- c(
   "CES; IPEAN",
   "CES; IPEAN"
 )
-caption <- "Mapeamento de variáveis: identificação de variáveis e sua origem."
-col.names <- c("Variável", "Método", "Unidade", "Laboratório")
+caption <- "Levantamento das variáveis e laboratório de origem."
 knitr::kable(
-  x = cbind(variavel, medodo = "", unidade = "", laboratorio), caption = caption,
-  col.names = col.names, align = "l", split.tables = Inf)
+  x = cbind(variavel, medodo = "", unidade = "", origem),
+  caption = caption, col.names = col.names, align = "l", split.tables = Inf)
 
 ## ---- descricao-de-metodos ----
 metodo <- c(
@@ -87,11 +85,10 @@ metodo <- c(
   "argila total.)"),
   "-"
 )
-caption <- "Identificação de métodos utilizados para produzir dados de variáveis do solo."
-col.names <- c("Variável", "Método", "Unidade", "Laboratório")
+caption <- "Identificação de métodos utilizados para produzir os dados das variáveis levantadas."
 knitr::kable(
-  x = cbind(variavel, metodo, unidade = "", laboratorio), caption = caption,
-  col.names = col.names, align = "l", split.tables = Inf)
+  x = cbind(variavel, metodo, unidade = "", origem),
+  caption = caption, col.names = col.names, align = "l", split.tables = Inf)
 
 ## ---- metodos-unidade-de-medida ----
 unidade <- c("-", "cm", rep("%", 10), "-")
@@ -110,9 +107,7 @@ variavel <- c(
   "Grau de floculação",
   "Silte/Argila"
 )
-caption <-
-  "Nome da variável, método de determinação, unidade de medida e laboratório responsável."
-col.names <- c("Variável", "Método", "Unidade", "Laboratório")
+caption <- "Nome da variável, método de determinação, unidade de medida e laboratório de origem."
 knitr::kable(
-  x = cbind(variavel, metodo, unidade, laboratorio), caption = caption,
-  col.names = col.names, align = "l", split.tables = Inf)
+  x = cbind(variavel, metodo, unidade, origem),
+  caption = caption, col.names = col.names, align = "l", split.tables = Inf)
