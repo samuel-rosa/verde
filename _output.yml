@@ -11,9 +11,9 @@ bookdown::gitbook:
     # download: ["pdf"]
   includes:
     after_body: html/after_body.html
-bookdown::pdf_book:
-  includes:
-    in_header: latex/preamble.tex
-    before_body: latex/before_body.tex
-  latex_engine: pdflatex
-  keep_tex: yes
+# bookdown::pdf_book:
+#   includes:
+#     in_header: latex/preamble.tex
+#     before_body: latex/before_body.tex
+#   latex_engine: pdflatex
+#   keep_tex: yes
