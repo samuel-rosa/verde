@@ -8,8 +8,8 @@ language:
   ui:
     edit: "Editar"
     chapter_name: "Capítulo "
-edit: https://github.com/samuel-rosa/verde/edit/master/%s
-view: https://github.com/samuel-rosa/verde/edit/master/%s
+edit: https://github.com/samuel-rosa/verde/edit/main/%s
+view: https://github.com/samuel-rosa/verde/blob/master/%s
 rmd_files: [
   "index.Rmd",
   # "introducao.Rmd",
