@@ -9,7 +9,7 @@ language:
     edit: "Editar"
     chapter_name: "Capítulo "
 edit: https://github.com/samuel-rosa/verde/edit/main/%s
-view: https://github.com/samuel-rosa/verde/blob/master/%s
+view: https://github.com/samuel-rosa/verde/blob/main/%s
 rmd_files: [
   "index.Rmd",
   # "introducao.Rmd",
