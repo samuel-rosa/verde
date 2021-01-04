@@ -1,9 +1,9 @@
-# Compilação de Metadados de Métodos
+# Resgate de Metadados de Métodos
 
 _Alessandro Samuel-Rosa_[^alessandro]
 
 ```{r, echo = FALSE, include = FALSE}
-knitr::read_chunk("compilacao-de-metadados-de-metodos.R")
+knitr::read_chunk("resgate-de-metadados-de-metodos.R")
 ```
 
 ## Levantamento das variáveis
