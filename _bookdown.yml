@@ -15,6 +15,7 @@ rmd_files: [
   # "introducao.Rmd",
   "metadados-de-metodos.Rmd",
   "resgate-de-metadados-de-metodos.Rmd",
+  "resgate-de-dados-do-solo.Rmd",
   # "morfologia.Rmd",
   "morfologia-cor-do-solo.Rmd",
   # "fisica.Rmd",
