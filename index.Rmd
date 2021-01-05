@@ -25,6 +25,7 @@ link-citations: yes
 
 <!-- Autores -->
 [^alessandro]: Dr. Alessandro Samuel-Rosa é professor na Universidade Tecnológica Federal do Paraná, Departamento de Agronomia, Prolongamento da Rua Cerejeira, s/n, CEP 85892-000, Santa Helena, Paraná, Brasil.
-[^wenceslau]: Dr. Wenceslau Geraldes Teixeira é pesquisador na Empresa Brasileira de Pesquisa Agropecuária, Centro Nacional de Pesquisa de Solos, Rua Jardim Botânico, 1024, CEP 22460-000, Rio de Janeiro, Rio de Janeiro, Brasil.
 [^joao-herbert]: Dr. João Herbert Moreira Viana é pesquisador na Empresa Brasileira de Pesquisa Agropecuária, Centro Nacional de Pesquisa de Milho e Sorgo, Rodovia MG-424, Km 45, CEP 35701-970, Sete Lagoas, Minas Gerais, Brasil.
-[^taciara]: MSc. Taciara Zborowski Horst-Heinen é pesquisadora na Universidade Federal de Santa Maria, Programa de Pós-Graduação em Ciência do Solo, Avenida Roraima, 1000, CEP 97105-900, Santa Maria, Rio Grande do Sul, Brasil.
+[^marcos-alexandre]: Marcos Alexandre dos Anhos é estudante na Universidade Tecnológica Federal do Paraná, Curso de Ciência da Computação, Prolongamento da Rua Cerejeira, s/n, CEP 85892-000, Santa Helena, Paraná, Brasil.
+[^taciara]: MSc. Taciara Zborowski Horst-Heinen é estudante de doutorado na Universidade Federal de Santa Maria, Programa de Pós-Graduação em Ciência do Solo, Avenida Roraima, 1000, CEP 97105-900, Santa Maria, Rio Grande do Sul, Brasil.
+[^wenceslau]: Dr. Wenceslau Geraldes Teixeira é pesquisador na Empresa Brasileira de Pesquisa Agropecuária, Centro Nacional de Pesquisa de Solos, Rua Jardim Botânico, 1024, CEP 22460-000, Rio de Janeiro, Rio de Janeiro, Brasil.
