@@ -17,7 +17,6 @@ rmd_files: [
   "resgate-de-metadados-de-metodos.Rmd",
   "resgate-de-dados-do-solo.Rmd",
   # "morfologia.Rmd",
-  "morfologia-cor-do-solo.Rmd",
   # "fisica.Rmd",
   "fisica-densidade.Rmd",
   "classificacao-taxonomica.Rmd",
